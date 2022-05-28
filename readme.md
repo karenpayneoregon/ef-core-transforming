@@ -41,7 +41,7 @@ public class Wine
 }
 ```
 
-Enum
+**Enum**
 
 ```csharp
 public enum WineVariantId : int
@@ -52,7 +52,7 @@ public enum WineVariantId : int
 }
 ```
 
-The following provides a one to many relationship
+The following provides a `one to many relationship`
 
 ```csharp
 public class WineVariant
@@ -64,7 +64,7 @@ public class WineVariant
 }
 ```
 
-Using HasConversion in the DbContext
+Using `HasConversion` in the `DbContext`
 
 ```csharp
 protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -92,7 +92,7 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 }
 ```
 
-Let's query for all wines
+**Let's query for all wines**
 
 ```csharp
 using System.Linq;
@@ -125,7 +125,7 @@ namespace HasConversion.Classes
 **Results**
 ![All Wines](EntityFrameworkCoreHasConversion/assets/AllWines.png)
 
-Display
+**Display**
 
 ![Wines](EntityFrameworkCoreHasConversion/assets/Wines.png)
 
@@ -175,7 +175,8 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
         );
 }
 ```
-Get all books
+
+**Get all books**
 
 ```csharp
 var bookList = context.Book.ToList();

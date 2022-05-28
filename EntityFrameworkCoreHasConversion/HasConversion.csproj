@@ -9,12 +9,10 @@
 
 	<ItemGroup>
 		<None Remove="forumquestion.md" />
-		<None Remove="readme.md" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<Content Include="forumquestion.md" />
-		<Content Include="readme.md" />
 	</ItemGroup>
 
 	<ItemGroup>
