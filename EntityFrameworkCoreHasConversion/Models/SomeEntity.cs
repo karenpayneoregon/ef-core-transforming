@@ -21,19 +21,4 @@ namespace HasConversion.Models
         public override string ToString() => Id.ToString();
 
     }
-
-    public enum SomeEnum
-    {
-        First,
-        Second,
-        Third
-    }
-
-    [Flags]
-    public enum SomeFlagsEnum
-    {
-        First = 1,
-        Second = 2,
-        Third = 4
-    }
 }

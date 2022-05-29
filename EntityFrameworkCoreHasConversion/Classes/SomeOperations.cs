@@ -10,6 +10,9 @@ namespace HasConversion.Classes
 {
     public class SomeOperations
     {
+        /// <summary>
+        /// Create database/table, populate
+        /// </summary>
         public static void AddView()
         {
             using var context = new SomeContext();
