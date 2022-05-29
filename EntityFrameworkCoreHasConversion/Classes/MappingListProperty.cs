@@ -7,6 +7,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using HasConversion.Data;
 using HasConversion.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.Logging;
 using Spectre.Console;
 
@@ -14,7 +16,7 @@ namespace HasConversion.Classes
 {
     class MappingListProperty
     {
-        public static void Run(bool reCreate = false)
+        public static void AddView(bool reCreate = false)
         {
             AnsiConsole.MarkupLine("[b][white]Value conversions[/][/] for a List<int>");
 
@@ -53,7 +55,7 @@ namespace HasConversion.Classes
                 var entity = context.Set<EntityType>().Single();
 
                 Debug.Assert(entity.ListProperty.SequenceEqual(new List<int> { 1, 2, 3, 4 }));
-                Console.WriteLine($"\tId: {entity.Id,-5}List values: {string.Join(",", entity.ListProperty)}");
+                AnsiConsole.MarkupLine($"\t[b]Id:[/] {entity.Id,-5}[b]List values:[/] {string.Join(",", entity.ListProperty)}");
             }
 
             AnsiConsole.MarkupLine("[b][white]Finished[/][/]");
