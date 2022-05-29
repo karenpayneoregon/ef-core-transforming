@@ -28,10 +28,7 @@ namespace HasConversion.Classes
                 });
             }
 
-            var count = context.SaveChanges();
-
-            var dataItems = context.SomeEntities.ToList();
-            Console.WriteLine(count);
+            context.SaveChanges();
         }
     }
 }
