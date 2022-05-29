@@ -17,6 +17,9 @@ namespace HasConversion.Models
         public SomeEnum SomeEnum { get; set; }
 
         public SomeFlagsEnum SomeFlagsEnum { get; set; }
+
+        public override string ToString() => Id.ToString();
+
     }
 
     public enum SomeEnum

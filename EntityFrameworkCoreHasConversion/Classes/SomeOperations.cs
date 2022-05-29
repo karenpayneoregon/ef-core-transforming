@@ -28,7 +28,13 @@ namespace HasConversion.Classes
                 });
             }
 
+            
             context.SaveChanges();
+
+            /*
+             * TODO
+             * Now inspect the column types in the database table
+             */
         }
     }
 }
