@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace HasConversion.Models
 {
@@ -13,8 +14,11 @@ namespace HasConversion.Models
 
     public enum WineVariantId : int
     {
+        [Description("Imported red wine")]
         Red = 0,
+        [Description("Imported white wine")]
         White = 1,
+        [Description("Imported rose wine")]
         Rose = 2
     }
 

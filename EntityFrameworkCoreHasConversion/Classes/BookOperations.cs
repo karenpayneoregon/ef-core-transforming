@@ -36,6 +36,7 @@ namespace HasConversion.Classes
 
             var bookList = context.Book.ToList();
 
+
             foreach (var book in bookList)
             {
                 allBooksTable.AddRow(
