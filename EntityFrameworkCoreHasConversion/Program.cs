@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Linq;
+using System.Runtime.InteropServices;
 using HasConversion.Classes;
+using HasConversion.Data;
 
 namespace HasConversion
 {
@@ -9,8 +12,10 @@ namespace HasConversion
         {
             //WineOperations.AddViewWines();
             //BookOperations.AddViewBooks();
-            AccountOperations.ViewAccounts();
-            Console.ReadLine();
+            //AccountOperations.ViewAccounts();
+
+
+            //Console.ReadLine();
         }
 
 

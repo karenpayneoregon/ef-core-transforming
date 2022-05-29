@@ -11,6 +11,8 @@ The code samples below allow a developer to get started by following along with 
 
 Code by itself is not enough, take time to read [Microsoft documentation](https://docs.microsoft.com/en-us/ef/core/modeling/value-conversions?tabs=data-annotations).
 
+Check the following [page](https://docs.microsoft.com/en-us/dotnet/api/microsoft.entityframeworkcore.storage.valueconversion?view=efcore-5.0) for builtin converters.
+
 :small_orange_diamond: Although there are many articles out there on transformations, this has ready to run examples.
 
 ```csharp
@@ -301,6 +303,26 @@ public static void ViewAccounts()
 
 }
 ```
+
+## BoolToStringConverter
+
+This converter transforms a bool to string where the value in the database table will be a string then when read back as a bool.
+
+![Bool To String](EntityFrameworkCoreHasConversion/assets/BoolToString.png)
+
+```csharp
+public class Person
+{
+    [Key]
+    public int Id { get; set; }
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public bool IsFriend { get; set; }
+    public override string ToString() => $"{FirstName} {LastName}";
+}
+```
+
+
 
 ## Json example
 
