@@ -244,7 +244,7 @@ public partial class Account
 }
 ```
 
-Conversion
+**Conversion**
 
 ```csharp
 protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -265,7 +265,7 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 
 
 
-View records
+**View records**
 
 ```csharp
 public static void ViewAccounts()
@@ -303,6 +303,53 @@ public static void ViewAccounts()
 
 }
 ```
+
+## Storing List
+
+In this case a List&lt;int>
+
+**Model**
+
+```csharp
+public class EntityType
+{
+    public int Id { get; set; }
+    public List<int> ListProperty { get; set; }
+}
+```
+
+**Conversion**
+
+```csharp
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+    
+    modelBuilder
+        .Entity<EntityType>()
+        .Property(e => e.ListProperty)
+        .HasConversion(
+            v => JsonSerializer.Serialize(v, null),
+            v => JsonSerializer.Deserialize<List<int>>(v, null),
+            new ValueComparer<List<int>>(
+                (list1, list2) => list1.SequenceEqual(list2),
+                c => c.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())),
+                c => c.ToList()));
+    
+}
+```
+
+**Add record**
+
+```csharp
+var entity = new EntityType { ListProperty = new List<int> { 1, 2, 3 } };
+context.Add(entity);
+context.SaveChanges();
+```
+
+**Result**
+
+![image](EntityFrameworkCoreHasConversion/assets/listQuery.png)
+
 
 ## BoolToStringConverter
 

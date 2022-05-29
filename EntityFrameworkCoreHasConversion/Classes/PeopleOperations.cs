@@ -14,9 +14,8 @@ namespace HasConversion.Classes
         public static void AddViewPeople()
         {
             using var context = new PeopleContext();
-            
-            context.Database.EnsureDeleted();
-            context.Database.EnsureCreated();
+
+            Helpers.CleanDatabase(context);
 
             context.Add(new Person() { FirstName = "Jim", LastName = "Jacobe", IsFriend = true, 
                 DateTime = new DateTime(2022, 5,5)});
@@ -26,6 +25,7 @@ namespace HasConversion.Classes
             context.Add(new Person() { FirstName = "Karen", LastName = "Payne", IsFriend = true });
 
             context.SaveChanges();
+
         }
     }
 }

@@ -13,9 +13,11 @@ namespace HasConversion
             //WineOperations.AddViewWines();
             //BookOperations.AddViewBooks();
             //AccountOperations.ViewAccounts();
-            PeopleOperations.AddViewPeople();
+            //PeopleOperations.AddViewPeople();
 
-            //Console.ReadLine();
+            MappingListProperty.Run(true);
+
+            Console.ReadLine();
         }
 
 
