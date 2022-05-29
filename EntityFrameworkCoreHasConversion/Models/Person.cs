@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace HasConversion.Models
 {
@@ -9,6 +10,7 @@ namespace HasConversion.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public bool IsFriend { get; set; }
+        public DateTime? DateTime { get; set; }
         public override string ToString() => $"{FirstName} {LastName}";
     }
 }

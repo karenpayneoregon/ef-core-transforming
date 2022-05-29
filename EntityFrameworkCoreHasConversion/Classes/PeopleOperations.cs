@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using HasConversion.Data;
 using HasConversion.Models;
 
@@ -17,7 +18,7 @@ namespace HasConversion.Classes
             context.Database.EnsureDeleted();
             context.Database.EnsureCreated();
 
-            context.Add(new Person() { FirstName = "Jim", LastName = "Jacobe", IsFriend = true });
+            context.Add(new Person() { FirstName = "Jim", LastName = "Jacobe", IsFriend = true, DateTime = new DateTime(2022, 5,5)});
             context.Add(new Person() { FirstName = "Bob", LastName = "Smith", IsFriend = false });
             context.Add(new Person() { FirstName = "Karen", LastName = "Payne", IsFriend = true });
             context.SaveChanges();

@@ -1,4 +1,5 @@
-﻿using HasConversion.Models;
+﻿using System;
+using HasConversion.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
@@ -16,9 +17,28 @@ namespace HasConversion.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
+
             modelBuilder.Entity<Person>()
                 .Property(person => person.IsFriend)
                 .HasConversion(new BoolToStringConverter("No", "Yes"));
+
+
+            var dateTimeConverter = new ValueConverter<DateTime, DateTime>(
+                datetime => datetime, 
+                dateTime => 
+                    DateTime.SpecifyKind(dateTime, DateTimeKind.Utc));
+
+
+            foreach (var entityType in modelBuilder.Model.GetEntityTypes())
+            {
+                foreach (var property in entityType.GetProperties())
+                {
+                    if (property.ClrType == typeof(DateTime) || property.ClrType == typeof(DateTime?))
+                    {
+                        property.SetValueConverter(dateTimeConverter);
+                    }
+                }
+            }
 
         }
     }

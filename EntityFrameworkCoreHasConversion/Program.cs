@@ -13,7 +13,7 @@ namespace HasConversion
             //WineOperations.AddViewWines();
             //BookOperations.AddViewBooks();
             //AccountOperations.ViewAccounts();
-
+            PeopleOperations.AddPeople();
 
             //Console.ReadLine();
         }
