@@ -423,7 +423,7 @@ In this article there are enough code to run and study to learn the basics of tr
 
 # See also
 
-- [Entity Framework Core 5 Value Converters](https://khalidabuhakmeh.com/entity-framework-core-5-value-converters)
+- khalidabuhakmeh [Entity Framework Core 5 Value Converters](https://khalidabuhakmeh.com/entity-framework-core-5-value-converters)
 - [Entity Framework Core – Improved Value Conversion Support](https://www.thinktecture.com/en/entity-framework-core/improved-value-conversion-support-in-2-1/)
 
 # NuGet packages
