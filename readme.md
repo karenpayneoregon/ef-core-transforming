@@ -19,7 +19,6 @@ Check the following [page](https://docs.microsoft.com/en-us/dotnet/api/microsoft
 
 :small_orange_diamond: Although I coded this repository
 
-- Some code samples are based on code samples found in Microsoft EF Core repo
 
 
 ```csharp
@@ -198,6 +197,13 @@ var list = bookList.Where(books => books.BookCategory == BookCategory.Adventure)
 ```
 
 ![Books](EntityFrameworkCoreHasConversion/assets/Books.png)
+
+
+# Enum tip
+
+When working with enum, consider placing the enum values in a database table and use a T4 template to generate the model. This will be helpful when there are many projects using the same enum and saves time if a member name changes, members are deleted or added.
+
+:small_orange_diamond: There are several [examples included](https://github.com/karenpayneoregon/ef-core-transforming/tree/master/EntityFrameworkCoreHasConversion/Templates).
 
 
 ## String to array
