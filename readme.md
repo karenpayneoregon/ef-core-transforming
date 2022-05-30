@@ -1,5 +1,7 @@
 ﻿# EF Core Value Conversions
 
+## Introduction
+
 EF Core provides methods to transform one type into another. Most common use is with enumerations while many other transformations are possible. In this article/code sample there are two samples for enumerations and one for string array.
 
 [Bulk-configuring a value converter](https://docs.microsoft.com/en-us/ef/core/modeling/value-conversions?tabs=data-annotations#bulk-configuring-a-value-converter) is possible as shown below.
@@ -14,6 +16,11 @@ Code by itself is not enough, take time to read [Microsoft documentation](https:
 Check the following [page](https://docs.microsoft.com/en-us/dotnet/api/microsoft.entityframeworkcore.storage.valueconversion?view=efcore-5.0) for builtin converters.
 
 :small_orange_diamond: Although there are many articles out there on transformations, this has ready to run examples.
+
+:small_orange_diamond: Although I coded this repository
+
+- Some code samples are based on code samples found in Microsoft EF Core repo
+
 
 ```csharp
 public class CurrencyConverter : ValueConverter<Currency, decimal>
@@ -423,7 +430,7 @@ In this article there are enough code to run and study to learn the basics of tr
 
 # See also
 
-- khalidabuhakmeh [Entity Framework Core 5 Value Converters](https://khalidabuhakmeh.com/entity-framework-core-5-value-converters)
+- [khalidabuhakmeh](https://twitter.com/buhakmeh) [Entity Framework Core 5 Value Converters](https://khalidabuhakmeh.com/entity-framework-core-5-value-converters)
 - [Entity Framework Core – Improved Value Conversion Support](https://www.thinktecture.com/en/entity-framework-core/improved-value-conversion-support-in-2-1/)
 
 # NuGet packages
