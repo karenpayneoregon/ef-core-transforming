@@ -131,6 +131,7 @@ namespace HasConversion.Classes
 ```
 
 **Results**
+
 ![All Wines](EntityFrameworkCoreHasConversion/assets/AllWines.png)
 
 **Display**
