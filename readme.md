@@ -435,6 +435,8 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 
 In this article there are enough code to run and study to learn the basics of transforming properties in models using Entity Framework Core. Couple this with Microsoft docs and the links below a developer can easily perform conversions.
 
+:small_orange_diamond: Some coders may look for places to use what has been presented while the reverse should be the path, tuck these away and when a situation arises you have a solution.
+
 # See also
 
 - [khalidabuhakmeh](https://twitter.com/buhakmeh) [Entity Framework Core 5 Value Converters](https://khalidabuhakmeh.com/entity-framework-core-5-value-converters)
