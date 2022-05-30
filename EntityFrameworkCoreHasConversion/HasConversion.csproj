@@ -9,10 +9,20 @@
 
 	<ItemGroup>
 		<None Remove="forumquestion.md" />
+		<None Remove="Templates\readme.md" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<Content Include="forumquestion.md" />
+		<Content Include="Templates\readme.md" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="Templates\WineVariants.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>WineVariants.tt</DependentUpon>
+	  </None>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -28,6 +38,26 @@
 	  <None Update="appsettings.json">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
+	  <None Update="Templates\BookCategory.tt">
+	    <Generator>TextTemplatingFileGenerator</Generator>
+	    <LastGenOutput>BookCategory.cs</LastGenOutput>
+	  </None>
+	  <None Update="Templates\WineVariants.tt">
+	    <Generator>TextTemplatingFileGenerator</Generator>
+	    <LastGenOutput>WineVariants.cs</LastGenOutput>
+	  </None>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Templates\BookCategory.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>BookCategory.tt</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 </Project>
