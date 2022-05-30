@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using HasConversion.Data;
 using HasConversion.Models;
 using Spectre.Console;
@@ -58,7 +56,9 @@ namespace HasConversion.Classes
                 .Title("[yellow]Adventure books[/]");
 
 
-            var list = bookList.Where(books => books.BookCategory == BookCategory.Adventure).ToList();
+            var list = bookList
+                .Where(books => books.BookCategory == BookCategory.Programming)
+                .ToList();
 
             foreach (var book in list)
             {

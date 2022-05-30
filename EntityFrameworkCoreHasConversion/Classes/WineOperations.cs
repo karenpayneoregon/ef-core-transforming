@@ -3,6 +3,7 @@ using HasConversion.Data;
 using HasConversion.Models;
 using Microsoft.EntityFrameworkCore;
 using Spectre.Console;
+
 using static HasConversion.Models.WineVariantId;
 
 namespace HasConversion.Classes
@@ -51,7 +52,11 @@ namespace HasConversion.Classes
             /*
              * Get all wines
              */
-            var allWines = context.Wines.Include(item => item.WineVariant).ToList();
+            var allWines = context
+                .Wines
+                .Include(item => item.WineVariant)
+                .ToList();
+
             var winesTable = WinTable;
 
             winesTable.AddRow("[b]All[/]");
@@ -61,7 +66,10 @@ namespace HasConversion.Classes
             }
            
 
-            var roseWines = context.Wines.Where(wine => wine.WineVariantId == Rose).ToList();
+            var roseWines = context
+                .Wines
+                .Where(wine => wine.WineVariantId == Rose)
+                .ToList();
 
             winesTable.AddRow("[b]Rose[/]");
             foreach (Wine roseWine in roseWines)
@@ -70,7 +78,12 @@ namespace HasConversion.Classes
             }
 
             winesTable.AddRow("[b]Red[/]");
-            var redWines = context.Wines.Where(wine => wine.WineVariantId == Red).ToList();
+
+            var redWines = context
+                .Wines
+                .Where(wine => wine.WineVariantId == Red)
+                .ToList();
+
             foreach (var redWine in redWines)
             {
                 winesTable.AddRow("", redWine.Name);

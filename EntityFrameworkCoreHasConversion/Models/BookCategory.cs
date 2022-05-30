@@ -7,6 +7,7 @@ namespace HasConversion.Models
         Adventure = 2,
         Romance = 3,
         Sports = 4,
-        Automobile = 5
+        Automobile = 5,
+        Programming
     }
 }
