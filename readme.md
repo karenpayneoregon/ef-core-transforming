@@ -17,7 +17,7 @@ Check the following [page](https://docs.microsoft.com/en-us/dotnet/api/microsoft
 
 :small_orange_diamond: Although there are many articles out there on transformations, this has ready to run examples.
 
-:small_orange_diamond: Although I coded this repository
+:small_orange_diamond: Although I coded this repository, inspiration can from various incomplete post on the web.
 
 
 
