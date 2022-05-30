@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using HasConversion.Classes;
@@ -21,6 +22,20 @@ namespace HasConversion
             Console.Title = "Code sample";
         }
 
+        /// <summary>
+        /// Example to get enum members descriptions
+        /// </summary>
+        public static void GetEnumDescriptions()
+        {
+
+            var result = EnumHelper.GetItems<WineVariantId>();
+
+            foreach (var container in result)
+            {
+                Console.WriteLine($"{container.Value,-10}{container.Description}");
+            }
+
+        }
 
     }
 }
