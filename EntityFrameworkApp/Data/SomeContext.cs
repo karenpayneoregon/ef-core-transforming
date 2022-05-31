@@ -9,7 +9,6 @@ namespace EntityFrameworkApp.Data
 {
     public class SomeContext : DbContext
     {
-        // Hello Karen
         public DbSet<SomeEntity> SomeEntities { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
