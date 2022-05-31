@@ -27,7 +27,7 @@ namespace EntityFrameworkApp
             Shown += OnShown;
         }
 
-        private async void OnShown(object? sender, EventArgs e)
+        private async void OnShown(object sender, EventArgs e)
         {
 
             await Task.Run(async () =>
@@ -51,7 +51,7 @@ namespace EntityFrameworkApp
         private void CurrentButton_Click(object sender, EventArgs e)
         {
             SomeEntity current = _bindingList[_bindingSource.Position];
-            MessageBox.Show($"{current.Id,-3}{current.SomeDateTime,-12:d}{current.SomeEnum}");
+            MessageBox.Show($@"{current.Id,-3}{current.SomeDateTime,-12:d}{current.SomeEnum}");
         }
     }
 }

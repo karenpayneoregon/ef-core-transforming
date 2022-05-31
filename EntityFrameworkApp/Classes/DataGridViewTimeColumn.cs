@@ -29,6 +29,8 @@ namespace EntityFrameworkApp.Classes
         {
             Style.Format = "hh:mm tt";
         }
+
+#pragma warning disable
         public override void InitializeEditingControl(int rowIndex, object initialFormattedValue, DataGridViewCellStyle dataGridViewCellStyle)
         {
             base.InitializeEditingControl(rowIndex, initialFormattedValue, dataGridViewCellStyle);
@@ -54,6 +56,8 @@ namespace EntityFrameworkApp.Classes
                 }
             }
         }
+#pragma warning restore
+
         public override Type EditType => typeof(TimeEditingControl);
 
         public override Type ValueType => typeof(DateTime);

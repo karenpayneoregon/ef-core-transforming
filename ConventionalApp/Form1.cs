@@ -49,7 +49,7 @@ namespace ConventionalApp
         private void CurrentButton_Click(object sender, EventArgs e)
         {
             SomeEntity current = _bindingList[_bindingSource.Position];
-            MessageBox.Show($"{current.Id, -3}{current.SomeDateTime,-12:d}{current.SomeEnum}");
+            MessageBox.Show($@"{current.Id, -3}{current.SomeDateTime,-12:d}{current.SomeEnum}");
         }
     }
 }
