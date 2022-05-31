@@ -20,7 +20,7 @@ namespace HasConversion
             //AccountOperations.ViewAccounts();
             //MappingListProperty.AddView();
             //PeopleOperations.AddViewPeople();
-            //SomeOperations.AddView();
+            SomeOperations.AddView();
             //GetEnumDescriptions();
 
             Console.ReadLine();

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using HasConversion.Models;
@@ -41,6 +42,21 @@ namespace HasConversion.Data
             modelBuilder.Entity<SomeEntity>()
                 .Property(entity => entity.SomeFlagsEnum)
                 .HasConversion(new EnumToStringConverter<SomeFlagsEnum>());
+
+            modelBuilder.Entity<SomeEntity>()
+                .Property(entity => entity.SomeAddress)
+                .HasConversion<string>();
+
+            var dollarsConverter = new ValueConverter<Dollars, decimal>(
+                dollars => dollars.Amount,
+                dec => new Dollars(dec),
+                new ConverterMappingHints(precision: 16, scale: 2));
+
+
+            modelBuilder.Entity<SomeEntity>()
+                .Property(e => e.SomePrice)
+                .HasConversion(dollarsConverter);
+
         }
     }
 }
