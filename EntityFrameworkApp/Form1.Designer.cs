@@ -1,5 +1,5 @@
 ﻿
-namespace ConventionalApp
+namespace EntityFrameworkApp
 {
     partial class Form1
     {
@@ -29,15 +29,26 @@ namespace ConventionalApp
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.CurrentButton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.IdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SomeDateColumn = new ConventionalApp.Classes.DataGridViewCalendarColumn();
+            this.SomeDateTimeColumn = new EntityFrameworkApp.Classes.DataGridViewCalendarColumn();
             this.SomeIntColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SomeEnumColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CurrentButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // CurrentButton
+            // 
+            this.CurrentButton.Image = global::EntityFrameworkApp.Properties.Resources.blueInformation_32Small;
+            this.CurrentButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.CurrentButton.Location = new System.Drawing.Point(12, 356);
+            this.CurrentButton.Name = "CurrentButton";
+            this.CurrentButton.Size = new System.Drawing.Size(93, 23);
+            this.CurrentButton.TabIndex = 3;
+            this.CurrentButton.Text = "Current";
+            this.CurrentButton.UseVisualStyleBackColor = true;
+            this.CurrentButton.Click += new System.EventHandler(this.CurrentButton_Click);
             // 
             // dataGridView1
             // 
@@ -45,13 +56,13 @@ namespace ConventionalApp
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdColumn,
-            this.SomeDateColumn,
+            this.SomeDateTimeColumn,
             this.SomeIntColumn,
             this.SomeEnumColumn});
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(410, 329);
-            this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.TabIndex = 4;
             // 
             // IdColumn
             // 
@@ -61,15 +72,11 @@ namespace ConventionalApp
             this.IdColumn.ReadOnly = true;
             this.IdColumn.Width = 50;
             // 
-            // SomeDateColumn
+            // SomeDateTimeColumn
             // 
-            this.SomeDateColumn.DataPropertyName = "SomeDateTime";
-            dataGridViewCellStyle1.Format = "g";
-            this.SomeDateColumn.DefaultCellStyle = dataGridViewCellStyle1;
-            this.SomeDateColumn.HeaderText = "Some date";
-            this.SomeDateColumn.Name = "SomeDateColumn";
-            this.SomeDateColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.SomeDateColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.SomeDateTimeColumn.DataPropertyName = "SomeDateTime";
+            this.SomeDateTimeColumn.HeaderText = "Data time";
+            this.SomeDateTimeColumn.Name = "SomeDateTimeColumn";
             // 
             // SomeIntColumn
             // 
@@ -83,41 +90,30 @@ namespace ConventionalApp
             this.SomeEnumColumn.HeaderText = "Some Enum";
             this.SomeEnumColumn.Name = "SomeEnumColumn";
             // 
-            // CurrentButton
-            // 
-            this.CurrentButton.Image = global::ConventionalApp.Properties.Resources.blueInformation_32Small;
-            this.CurrentButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.CurrentButton.Location = new System.Drawing.Point(12, 356);
-            this.CurrentButton.Name = "CurrentButton";
-            this.CurrentButton.Size = new System.Drawing.Size(93, 23);
-            this.CurrentButton.TabIndex = 2;
-            this.CurrentButton.Text = "Current";
-            this.CurrentButton.UseVisualStyleBackColor = true;
-            this.CurrentButton.Click += new System.EventHandler(this.CurrentButton_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(439, 391);
-            this.Controls.Add(this.CurrentButton);
             this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.CurrentButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Data provider";
+            this.Text = "EF Core";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Button CurrentButton;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdColumn;
-        private Classes.DataGridViewCalendarColumn SomeDateColumn;
+        private Classes.DataGridViewCalendarColumn SomeDateTimeColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn SomeIntColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn SomeEnumColumn;
-        private System.Windows.Forms.Button CurrentButton;
     }
 }
 

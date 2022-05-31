@@ -36,24 +36,29 @@ namespace ConventionalApp.Classes
 
             await using var cn = new SqlConnection(ConnectionString());
             await using var cmd = new SqlCommand() { Connection = cn };
+
             cmd.CommandText = "SELECT Id, SomeDateTime, SomeInt, SomeEnum, SomePrice FROM dbo.SomeEntities;";
+
             await cn.OpenAsync();
+
             var reader = await cmd.ExecuteReaderAsync();
 
             while (reader.Read())
             {
-                SomeEntity entity = new();
-
-                entity.Id = reader.GetInt32(0);
-                entity.SomeDateTime = Convert.ToDateTime(reader.GetString(1));
-                entity.SomeInt = Convert.ToInt32(reader.GetString(2));
-                entity.SomeEnum = reader.GetString(3).ToEnum<SomeEnum>(SomeEnum.First);
+                SomeEntity entity = new()
+                {
+                    Id = reader.GetInt32(0),
+                    SomeDateTime = Convert.ToDateTime(reader.GetString(1)),
+                    SomeInt = Convert.ToInt32(reader.GetString(2)),
+                    SomeEnum = reader.GetString(3).ToEnum<SomeEnum>(SomeEnum.First)
+                };
 
                 list.Add(entity);
             }
 
 
             return list;
+
         }
     }
 }
