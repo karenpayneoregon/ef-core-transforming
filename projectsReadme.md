@@ -1,0 +1,3 @@
+There are two windows forms projects, one uses a data provider to read data while the second uses EF Core.
+
+In the data provider code the developer must perform conversions on all columns in any code that does any operation while the EF Core project does all conversions in the DbContext which is much cleaner that doing conversions as in the data provider windows form project. Same goes for other project types.
