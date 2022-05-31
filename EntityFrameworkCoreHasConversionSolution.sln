@@ -14,8 +14,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConventionalApp", "Conventi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkApp", "EntityFrameworkApp\EntityFrameworkApp.csproj", "{E71D6465-F16A-4F6C-86AD-3E8873243388}"
 EndProject
-Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PythonApplication1", "PythonApplication1\PythonApplication1.pyproj", "{4BD7645A-1F9C-4D40-8378-78FE34007574}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,8 +32,6 @@ Global
 		{E71D6465-F16A-4F6C-86AD-3E8873243388}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E71D6465-F16A-4F6C-86AD-3E8873243388}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E71D6465-F16A-4F6C-86AD-3E8873243388}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4BD7645A-1F9C-4D40-8378-78FE34007574}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4BD7645A-1F9C-4D40-8378-78FE34007574}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
