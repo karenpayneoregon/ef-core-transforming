@@ -11,9 +11,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		readme.md = readme.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConventionalApp", "ConventionalApp\ConventionalApp.csproj", "{0F86519A-986D-4465-A010-18C1FC2EB233}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConventionalApp", "ConventionalApp\ConventionalApp.csproj", "{0F86519A-986D-4465-A010-18C1FC2EB233}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkApp", "EntityFrameworkApp\EntityFrameworkApp.csproj", "{E71D6465-F16A-4F6C-86AD-3E8873243388}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameworkApp", "EntityFrameworkApp\EntityFrameworkApp.csproj", "{E71D6465-F16A-4F6C-86AD-3E8873243388}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

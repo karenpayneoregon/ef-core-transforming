@@ -13,7 +13,7 @@ namespace EntityFrameworkApp.Classes
     {
         public static async Task<List<SomeEntity>> ReadEntitiesAsync()
         {
-            await using var context = new SomeContext();
+            await using var context = new SomeContext(ConnectionType.Standard);
 
             return await context.SomeEntities.ToListAsync();
         }

@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using ConfigurationLibrary.Classes;
+﻿using ConfigurationLibrary.Classes;
 using EntityFrameworkApp.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
@@ -7,30 +6,43 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EntityFrameworkApp.Data
 {
-    public class SomeContext : DbContext
+    public partial class SomeContext : DbContext
     {
-        public DbSet<SomeEntity> SomeEntities { get; set; }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        /// <summary>
+        /// Options to connect or connect with logging
+        /// </summary>
+        private readonly ConnectionType _connectionType;
+
+        /// <summary>
+        /// Default to no logging connection
+        /// </summary>
+        public SomeContext()
         {
-            NoLogging(optionsBuilder);
+            _connectionType = ConnectionType.Standard;
         }
 
         /// <summary>
-        /// Simple configuration for setting the connection string
+        /// Selective connection
         /// </summary>
-        /// <param name="optionsBuilder"></param>
-        public static void NoLogging(DbContextOptionsBuilder optionsBuilder)
+        /// <param name="connectionType"></param>
+        public SomeContext(ConnectionType connectionType)
         {
-            optionsBuilder.UseSqlServer(ConfigurationHelper.ConnectionString());
+            _connectionType = connectionType;
         }
-        /// <summary>
-        /// Default logging to output window
-        /// </summary>
-        public static void StandardLogging(DbContextOptionsBuilder optionsBuilder)
+
+        public DbSet<SomeEntity> SomeEntities { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(ConfigurationHelper.ConnectionString())
-                .EnableSensitiveDataLogging()
-                .LogTo(message => Debug.WriteLine(message));
+            if (_connectionType == ConnectionType.Standard)
+            {
+                optionsBuilder.UseSqlServer(ConfigurationHelper.ConnectionString());
+            }
+            else
+            {
+                StandardLogging(optionsBuilder).UseSqlServer(ConfigurationHelper.ConnectionString());
+            }
+           
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
