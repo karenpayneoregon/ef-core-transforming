@@ -42,7 +42,6 @@ namespace EntityFrameworkApp.Data
             {
                 StandardLogging(optionsBuilder).UseSqlServer(ConfigurationHelper.ConnectionString());
             }
-           
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -79,8 +78,7 @@ namespace EntityFrameworkApp.Data
                 dollars => dollars.Amount,
                 dec => new Dollars(dec),
                 new ConverterMappingHints(precision: 16, scale: 2));
-
-
+            
             modelBuilder.Entity<SomeEntity>()
                 .Property(e => e.SomePrice)
                 .HasConversion(dollarsConverter);

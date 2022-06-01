@@ -69,4 +69,19 @@
   <metadata name="SomeEnumColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="UpdateCurrentButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wgAADsIBFShKgAAAATBJREFUOE/Vkr1qwzAUhf0I2btk7Wu4XQ19g2bw7t0vEbwb0i6dW0y3QsbioRha
+        P0FDTMCDa4d6vdUnLCPFJp1z4WApOufTT67X9/1SqVGSGW2Vlt65UoaiLEsJgkB839cizDdJEsbAF4N9
+        WpjrupY4jh1AlmUamqYp881gn5Za3EZRpM0mBMCGMB7s02KRXTEz5joGkOf5eKITFUorB4DZGAwEqAHc
+        PO/l7rWSq8dvuX87yEfV8ftaA8zxGdtzvlzv2B3lp2lHPXzWcv20k0P7KwA2PJQJ8aDsisIw1HOgXds5
+        AE5iAAulBgghGwD0vfiS25fKuYIRYPMONBNNM14DsQNhO2QLjwbMFYtzIVsXAOCvmgsi1v4DrGkWmuY0
+        7DTSuVKGlRJtq3ezNLSy5/0Bq89Nv87hPVQAAAAASUVORK5CYII=
+</value>
+  </data>
 </root>

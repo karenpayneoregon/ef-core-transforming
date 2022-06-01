@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -29,6 +30,35 @@ namespace ConventionalApp.Classes
             }
         }
 
+        public static async Task<(bool success, Exception exception)> UpdateEntity(SomeEntity entity)
+        {
+            await using var cn = new SqlConnection(ConnectionString());
+            await using var cmd = new SqlCommand() { Connection = cn };
+
+            cmd.CommandText = UpdateStatement;
+
+            cmd.Parameters.Add("@SomeDateTime", SqlDbType.NVarChar).Value = entity.SomeDateTime.ToString();
+            cmd.Parameters.Add("@SomeGuid", SqlDbType.NVarChar).Value = entity.SomeGuid.ToString();
+            cmd.Parameters.Add("@SomeInt", SqlDbType.NVarChar).Value = entity.SomeInt;
+            cmd.Parameters.Add("@SomeEnum", SqlDbType.NVarChar).Value = entity.SomeEnum;
+            cmd.Parameters.Add("@SomePrice", SqlDbType.Decimal).Value = entity.SomePrice.Amount;
+            cmd.Parameters.Add("@Identifier", SqlDbType.Int).Value = entity.Id;
+
+
+            await cn.OpenAsync();
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                return (true, null);
+            }
+            catch (Exception localException)
+            {
+
+                return (false, localException);
+            }
+        }
+
         public static async Task<List<SomeEntity>> ReadEntitiesAsync()
         {
 
@@ -50,15 +80,25 @@ namespace ConventionalApp.Classes
                     Id = reader.GetInt32(0),
                     SomeDateTime = Convert.ToDateTime(reader.GetString(1)),
                     SomeInt = Convert.ToInt32(reader.GetString(2)),
-                    SomeEnum = reader.GetString(3).ToEnum<SomeEnum>(SomeEnum.First)
+                    SomeEnum = reader.GetString(3).ToEnum(SomeEnum.First)
                 };
 
                 list.Add(entity);
             }
 
-
             return list;
 
         }
+
+        public static string UpdateStatement => @"
+        UPDATE dbo.SomeEntities
+          SET 
+              SomeDateTime = @SomeDateTime, 
+              SomeGuid = @SomeGuid, 
+              SomeInt = @SomeInt, 
+              SomeEnum = @SomeEnum, 
+              SomePrice = @SomePrice
+        WHERE Id = @Identifier;";
+
     }
 }
