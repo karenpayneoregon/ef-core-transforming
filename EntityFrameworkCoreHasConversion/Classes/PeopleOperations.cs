@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Drawing;
+using System.Linq;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using HasConversion.Data;
 using HasConversion.Models;
+using Person = HasConversion.Models.Person;
 
 namespace HasConversion.Classes
 {
@@ -18,14 +21,32 @@ namespace HasConversion.Classes
             Helpers.CleanDatabase(context);
 
             context.Add(new Person() { FirstName = "Jim", LastName = "Jacobe", IsFriend = true, 
-                DateTime = new DateTime(2022, 5,5)});
+                DateTime = new DateTime(2022, 5,5), 
+                Color = Color.AliceBlue});
 
-            context.Add(new Person() { FirstName = "Bob", LastName = "Smith", IsFriend = false });
+            context.Add(new Person() { FirstName = "Bob", LastName = "Smith", IsFriend = false , 
+                Color = Color.Coral});
 
-            context.Add(new Person() { FirstName = "Karen", LastName = "Payne", IsFriend = true });
+            context.Add(new Person()
+            {
+                FirstName = "Karen", LastName = "Payne", IsFriend = true,
+                Color = Color.Red
+            });
 
             context.SaveChanges();
 
+            ReadPeople();
+
+        }
+
+        private static void ReadPeople()
+        {
+            using var context = new PeopleContext();
+            var people = context.People.ToList();
+            foreach (var person in people)
+            {
+                Console.WriteLine($"{person.Id,-3}{person.Color.Name,-12}{person.IsFriend.ToYesNo(),-5}{person.LastName}");
+            }
         }
     }
 }

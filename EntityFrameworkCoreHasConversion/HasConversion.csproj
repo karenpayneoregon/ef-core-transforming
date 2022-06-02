@@ -9,11 +9,13 @@
 
 	<ItemGroup>
 		<None Remove="forumquestion.md" />
+		<None Remove="Scripts\Dump.sql" />
 		<None Remove="Templates\readme.md" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<Content Include="forumquestion.md" />
+		<Content Include="Scripts\Dump.sql" />
 		<Content Include="Templates\readme.md" />
 	</ItemGroup>
 

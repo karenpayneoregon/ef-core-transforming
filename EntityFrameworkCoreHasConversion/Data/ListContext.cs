@@ -22,7 +22,8 @@ namespace HasConversion.Data
                     v => JsonSerializer.Deserialize<List<int>>(v, null),
                     new ValueComparer<List<int>>(
                         (list1, list2) => list1.SequenceEqual(list2),
-                        c => c.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())),
+                        c => c.Aggregate(0, (a, v) => 
+                            HashCode.Combine(a, v.GetHashCode())),
                         c => c.ToList()));
             
         }

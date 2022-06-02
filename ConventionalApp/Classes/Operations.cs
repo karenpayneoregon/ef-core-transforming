@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,13 +39,18 @@ namespace ConventionalApp.Classes
 
             cmd.CommandText = UpdateStatement;
 
-            cmd.Parameters.Add("@SomeDateTime", SqlDbType.NVarChar).Value = entity.SomeDateTime.ToString();
+            entity.SomeGuid = Guid.NewGuid();
+
+            cmd.Parameters.Add("@SomeDateTime", SqlDbType.NVarChar).Value = entity.SomeDateTime
+                .ToString(CultureInfo.InvariantCulture);
+
             cmd.Parameters.Add("@SomeGuid", SqlDbType.NVarChar).Value = entity.SomeGuid.ToString();
             cmd.Parameters.Add("@SomeInt", SqlDbType.NVarChar).Value = entity.SomeInt;
             cmd.Parameters.Add("@SomeEnum", SqlDbType.NVarChar).Value = entity.SomeEnum;
             cmd.Parameters.Add("@SomePrice", SqlDbType.Decimal).Value = entity.SomePrice.Amount;
             cmd.Parameters.Add("@Identifier", SqlDbType.Int).Value = entity.Id;
 
+            Debug.WriteLine(cmd.ActualCommandText());
 
             await cn.OpenAsync();
 

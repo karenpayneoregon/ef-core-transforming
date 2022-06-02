@@ -19,8 +19,8 @@ namespace HasConversion
             //BookOperations.AddViewBooks();
             //AccountOperations.ViewAccounts();
             //MappingListProperty.AddView();
-            //PeopleOperations.AddViewPeople();
-            SomeOperations.AddView();
+            PeopleOperations.AddViewPeople();
+            //SomeOperations.AddView();
             //GetEnumDescriptions();
 
             Console.ReadLine();

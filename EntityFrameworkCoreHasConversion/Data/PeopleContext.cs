@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using HasConversion.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
@@ -21,6 +22,12 @@ namespace HasConversion.Data
             modelBuilder.Entity<Person>()
                 .Property(person => person.IsFriend)
                 .HasConversion(new BoolToStringConverter("No", "Yes"));
+
+            modelBuilder.Entity<Person>()
+                .Property(person => person.Color)
+                .HasConversion(
+                    color => color.Name, 
+                    value => Color.FromName(value));
 
 
             var dateTimeConverter = new ValueConverter<DateTime, DateTime>(
