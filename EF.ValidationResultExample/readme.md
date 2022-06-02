@@ -5,6 +5,12 @@
 A `self-validating` model is a model object that knows how to validate itself. A model object can
 announce this capability by implementing the [IValidatableObject](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations.ivalidatableobject?view=net-6.0) interface.
 
+This is important when working with EF Core is to provide validation 
+
+- To validate without a try-catch
+- Not having to validate in a [SaveChanges Interceptor](http://example.com)[^1] or overriding SaveChanges/SaveChangesAsync.
+- Either or of the above still can be used.
+
 **Implement** `IValidatableObject`
 
 ```csharp
@@ -67,3 +73,7 @@ private static Book BookMissingTitleAndAuthor()
     return book;
 }
 ```
+
+[^1]: Example for validating in SaveChanges
+
+

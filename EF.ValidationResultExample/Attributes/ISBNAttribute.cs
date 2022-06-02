@@ -22,7 +22,6 @@ namespace EF.ValidationResultExample.Attributes
         
         public override bool IsValid(object value)
         {
-
             if (value is not string isbn)
             {
                 return false;

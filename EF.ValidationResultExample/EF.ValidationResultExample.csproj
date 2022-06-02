@@ -8,10 +8,12 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<None Remove="assets\SaveChanges.md" />
 		<None Remove="readme.md" />
 	</ItemGroup>
 
 	<ItemGroup>
+		<Content Include="assets\SaveChanges.md" />
 		<Content Include="readme.md" />
 	</ItemGroup>
 

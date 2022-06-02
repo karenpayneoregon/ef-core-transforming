@@ -60,5 +60,6 @@ namespace EF.ValidationResultExample.Data
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+        
     }
 }

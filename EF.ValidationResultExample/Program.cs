@@ -34,7 +34,7 @@ namespace EF.ValidationResultExample
 
         private static void PlayWithBook()
         {
-            Book testBook = new Book();
+            Book testBook = new ();
             var validationContext = new ValidationContext(testBook);
             var validationResults = testBook.Validate(validationContext);
             Console.WriteLine(validationResults.IsValid());
