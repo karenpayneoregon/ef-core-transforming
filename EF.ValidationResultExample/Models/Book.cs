@@ -14,6 +14,10 @@ namespace EF.ValidationResultExample.Models
         public string Author { get; set; }
         public BookCategory BookCategory { get; set; }
         public override string ToString() => Title;
+
+        /// <summary>
+        /// Place code here to validate against data annotations
+        /// </summary>
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
             if (string.IsNullOrWhiteSpace(Title))
@@ -22,6 +26,7 @@ namespace EF.ValidationResultExample.Models
                     $"{nameof(Title)} cannot be empty",
                     new[] { nameof(Title) });
             }
+
             if (string.IsNullOrWhiteSpace(Author))
             {
                 yield return new ValidationResult(
