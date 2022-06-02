@@ -74,6 +74,8 @@ private static Book BookMissingTitleAndAuthor()
 }
 ```
 
-[^1]: Example for validating in SaveChanges
+[^1]: [Example](./assets/SaveChanges.md) for validating in SaveChanges
+
+
 
 
