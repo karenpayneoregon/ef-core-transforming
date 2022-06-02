@@ -40,7 +40,7 @@ namespace HasConversion.Classes
                 allBooksTable.AddRow(
                     book.BookId.ToString(),
                     book.Title,
-                    Enum.GetName(typeof(BookCategory), book.BookCategory)!
+                    book.BookCategory.ToString()
                     );
             }
 

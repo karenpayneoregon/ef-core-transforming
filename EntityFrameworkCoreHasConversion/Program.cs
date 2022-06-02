@@ -16,10 +16,10 @@ namespace HasConversion
         {
 
             //WineOperations.AddViewWines();
-            //BookOperations.AddViewBooks();
+            BookOperations.AddViewBooks();
             //AccountOperations.ViewAccounts();
             //MappingListProperty.AddView();
-            PeopleOperations.AddViewPeople();
+            //PeopleOperations.AddViewPeople();
             //SomeOperations.AddView();
             //GetEnumDescriptions();
 
