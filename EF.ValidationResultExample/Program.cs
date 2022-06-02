@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using EF.ValidationResultExample.Classes;
 using EF.ValidationResultExample.Data;
 using EF.ValidationResultExample.Models;
 using Spectre.Console;
@@ -21,17 +22,22 @@ namespace EF.ValidationResultExample
 
             AnsiConsole.WriteLine();
 
-            ValidationContext validationContext;
-            BookMissingAuthor(book);
+            BookMissingAuthor();
 
             AnsiConsole.WriteLine();
 
-            BookIsValid(book);
-
-
+            BookIsValid();
+            
             Console.ReadLine();
+
         }
 
-
+        private static void PlayWithBook()
+        {
+            Book testBook = new Book();
+            var validationContext = new ValidationContext(testBook);
+            var validationResults = testBook.Validate(validationContext);
+            Console.WriteLine(validationResults.IsValid());
+        }
     }
 }

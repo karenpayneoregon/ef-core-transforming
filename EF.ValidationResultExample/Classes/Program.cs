@@ -13,13 +13,20 @@ namespace EF.ValidationResultExample
 {
     partial class Program
     {
-        private static void BookIsValid(Book book)
+        private static void BookIsValid()
         {
+            Book book = new Book
+            {
+                Title = "Learning to code in C#",
+                Author = "Karen Payne",
+                ISBN = "978-92-95055-02-5"
+            };
+
+            AnsiConsole.MarkupLine($"[b][cyan]{nameof(BookIsValid)}[/][/]");
             ValidationContext validationContext;
             IEnumerable<ValidationResult> validationResults;
 
-            book.Title = "Learning to code in C#";
-            book.Author = "Karen Payne";
+
             validationContext = new ValidationContext(book);
             validationResults = book.Validate(validationContext);
 
@@ -38,11 +45,18 @@ namespace EF.ValidationResultExample
 
         }
 
-        private static void BookMissingAuthor(Book book)
+        private static void BookMissingAuthor()
         {
+
+            AnsiConsole.MarkupLine($"[b][cyan]{nameof(BookMissingAuthor)}[/][/]");
+
             IEnumerable<ValidationResult> validationResults;
 
-            book.Title = "Learning to code in C#";
+            Book book = new Book
+            {
+                Title = "Learning to code in C#",
+                ISBN = "978-92-95055-02-5"
+            };
 
             var validationContext = new ValidationContext(book);
             validationResults = book.Validate(validationContext);
@@ -63,6 +77,8 @@ namespace EF.ValidationResultExample
 
         private static Book BookMissingTitleAndAuthor()
         {
+            AnsiConsole.MarkupLine($"[b][cyan]{nameof(BookMissingTitleAndAuthor)}[/][/]");
+
             Book book = new();
 
             ValidationContext validationContext = new ValidationContext(book);
