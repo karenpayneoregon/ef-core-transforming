@@ -15,6 +15,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConventionalApp", "Conventi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameworkApp", "EntityFrameworkApp\EntityFrameworkApp.csproj", "{E71D6465-F16A-4F6C-86AD-3E8873243388}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Other", "Other", "{626CCD31-18F0-4820-B72E-F003F138B517}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EF.ValidationResultExample", "EF.ValidationResultExample\EF.ValidationResultExample.csproj", "{607EDB6E-07A6-477F-A035-96FB04800F23}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,9 +37,16 @@ Global
 		{E71D6465-F16A-4F6C-86AD-3E8873243388}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E71D6465-F16A-4F6C-86AD-3E8873243388}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E71D6465-F16A-4F6C-86AD-3E8873243388}.Release|Any CPU.Build.0 = Release|Any CPU
+		{607EDB6E-07A6-477F-A035-96FB04800F23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{607EDB6E-07A6-477F-A035-96FB04800F23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{607EDB6E-07A6-477F-A035-96FB04800F23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{607EDB6E-07A6-477F-A035-96FB04800F23}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{607EDB6E-07A6-477F-A035-96FB04800F23} = {626CCD31-18F0-4820-B72E-F003F138B517}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {104E09C7-6F6C-4452-B22C-411710E01F29}
