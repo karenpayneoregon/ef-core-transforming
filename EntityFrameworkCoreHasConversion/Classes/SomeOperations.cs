@@ -20,25 +20,25 @@ namespace HasConversion.Classes
         public static void AddView()
         {
             using var context = new SomeContext();
-            Helpers.CleanDatabase(context);
+            //Helpers.CleanDatabase(context);
 
-            for (int index = 0; index < 10; index++)
-            {
-                context.SomeEntities.Add(new SomeEntity
-                {
-                    SomeDateTime = DateTime.Now,
-                    SomeGuid = Guid.NewGuid(),
-                    SomeInt = new Random().Next(1_000_000),
-                    SomeDouble = new Random().NextDouble() * 10_000,
-                    SomePrice = new Dollars(Convert.ToDecimal(new Random().NextDouble() * 10_000)),
-                    SomeEnum = (SomeEnum)new Random().Next(3),
-                    SomeFlagsEnum = SomeFlagsEnum.First | SomeFlagsEnum.Second,
-                    SomeAddress = IPAddress.Parse(GetRandomIpAddress())
-                });
-            }
+            //for (int index = 0; index < 10; index++)
+            //{
+            //    context.SomeEntities.Add(new SomeEntity
+            //    {
+            //        SomeDateTime = DateTime.Now,
+            //        SomeGuid = Guid.NewGuid(),
+            //        SomeInt = new Random().Next(1_000_000),
+            //        SomeDouble = new Random().NextDouble() * 10_000,
+            //        SomePrice = new Dollars(Convert.ToDecimal(new Random().NextDouble() * 10_000)),
+            //        SomeEnum = (SomeEnum)new Random().Next(3),
+            //        SomeFlagsEnum = SomeFlagsEnum.First | SomeFlagsEnum.Second,
+            //        SomeAddress = IPAddress.Parse(GetRandomIpAddress())
+            //    });
+            //}
 
-            
-            context.SaveChanges();
+
+            //context.SaveChanges();
 
             /*
              * TODO

@@ -22,6 +22,7 @@ namespace HasConversion.Models
         Rose = 2
     }
 
+
     public class WineVariant
     {
         public WineVariantId WineVariantId { get; set; }

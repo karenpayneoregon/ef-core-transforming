@@ -17,14 +17,14 @@ namespace EF.ValidationResultExample
             AnsiConsole.WriteLine();
 
             using var context = new BookContext();
-            IEnumerable<ValidationResult> validationResults;
-            Book book = BookMissingTitleAndAuthor();
+            //IEnumerable<ValidationResult> validationResults;
+            //Book book = BookMissingTitleAndAuthor();
 
-            AnsiConsole.WriteLine();
+            //AnsiConsole.WriteLine();
 
-            BookMissingAuthor();
+            //BookMissingAuthor();
 
-            AnsiConsole.WriteLine();
+            //AnsiConsole.WriteLine();
 
             BookIsValid();
             

@@ -10,8 +10,12 @@ namespace Console1
         static void Main(string[] args)
         {
 
-            AnsiConsole.MarkupLine("[b][white]Conventional DateTime with AM/PM[/][/]");
-            Console.WriteLine(DateTime.Now.ToString("dd/M/yyyy hh:mm:ss tt"));
+            // 31/5/2022 11:00:00 a. m.
+            // 31/5/2022 11:00:00 AM
+
+            //AnsiConsole.MarkupLine("[b][white]Conventional DateTime with AM/PM[/][/]");
+            Console.WriteLine(DateTime.Now.ToString("dd/M/yyyy hh:mm tt"));
+
             Console.WriteLine();
 
             DoConvert1();
@@ -48,9 +52,16 @@ namespace Console1
 
             AnsiConsole.MarkupLine($"[b][white on blue]{nameof(DoConvert2)}[/][/]");
 
-            DateTimeFormatInfo formatInfo = new DateTimeFormatInfo() { AMDesignator = "a. m.", PMDesignator = "p. m." };
+            DateTimeFormatInfo formatInfo = new ()
+            {
+                AMDesignator = "a. m.", 
+                PMDesignator = "p. m."
+            };
 
-            var dateTime = DateTime.ParseExact(_dateTimeValue, "dd/M/yyyy hh:mm:ss tt", formatInfo);
+            var dateTime = DateTime.ParseExact(
+                _dateTimeValue, 
+                "dd/M/yyyy hh:mm:ss tt", 
+                formatInfo);
 
             Console.WriteLine(_dateTimeValue);
             Console.WriteLine(dateTime);

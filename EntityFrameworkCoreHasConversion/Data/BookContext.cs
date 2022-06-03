@@ -22,7 +22,7 @@ namespace HasConversion.Data
         }
 
         public virtual DbSet<Book> Book { get; set; }
-        //public DbSet<BookVariants> BookVariants { get; set; }
+        public DbSet<BookVariant> BookVariants { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -40,19 +40,24 @@ namespace HasConversion.Data
 
             modelBuilder
                 .Entity<Book>()
-                .Property(e => e.BookCategory)
+                .Property(e => e.BookVariantId)
                 .HasConversion<int>();
 
-            //modelBuilder
-            //    .Entity<BookVariants>().HasData(
-            //        Enum.GetValues(typeof(BookVariantId))
-            //            .Cast<BookVariantId>()
-            //            .Select(e => new BookVariants()
-            //            {
-            //                BookCategoryId = e,
-            //                Name = e.ToString()
-            //            })
-            //    );
+            modelBuilder
+                .Entity<BookVariant>()
+                .Property(e => e.BookVariantId)
+                .HasConversion<int>();
+
+            modelBuilder
+                .Entity<BookVariant>().HasData(
+                    Enum.GetValues(typeof(BookVariantId))
+                        .Cast<BookVariantId>()
+                        .Select(e => new BookVariant()
+                        {
+                            BookVariantId = e,
+                            Name = e.ToString()
+                        })
+                );
 
             modelBuilder.HasSequence<int>("seq_test").HasMin(1);
 

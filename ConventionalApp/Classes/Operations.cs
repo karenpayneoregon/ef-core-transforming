@@ -53,6 +53,7 @@ namespace ConventionalApp.Classes
             cmd.Parameters.Add("@Identifier", SqlDbType.Int).Value = entity.Id;
 
             Debug.WriteLine(cmd.ActualCommandText());
+            
 
             await cn.OpenAsync();
 

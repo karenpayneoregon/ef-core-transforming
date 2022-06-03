@@ -19,13 +19,18 @@ namespace HasConversion.Data
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
             modelBuilder.Entity<SomeEntity>()
                 .Property(entity => entity.SomeDateTime)
                 .HasConversion(new DateTimeToStringConverter());
 
+
+
+
             modelBuilder.Entity<SomeEntity>()
                 .Property(entity => entity.SomeGuid)
                 .HasConversion(new GuidToStringConverter());
+
 
             modelBuilder.Entity<SomeEntity>()
                 .Property(entity => entity.SomeInt)
@@ -34,6 +39,7 @@ namespace HasConversion.Data
             modelBuilder.Entity<SomeEntity>()
                 .Property(entity => entity.SomeDouble)
                 .HasConversion(new NumberToStringConverter<double>());
+
 
             modelBuilder.Entity<SomeEntity>()
                 .Property(entity => entity.SomeEnum)

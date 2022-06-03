@@ -18,12 +18,12 @@ namespace HasConversion
             /*
              * Get descriptions for enum which can be used in a user interface
              */
-            GetEnumDescriptions();
+            //GetEnumDescriptions();
 
             /*
              * First attempt at using enum, no navigation
              */
-            //BookOperations.AddViewBooks(true);
+            BookOperations.AddViewBooks(true);
 
             /*
              * Second attempt at using emun with navigation
@@ -50,7 +50,7 @@ namespace HasConversion
             /*
              * string to array and back
              */
-            AccountOperations.ViewAccounts();
+            //AccountOperations.ViewAccounts();
             Console.ReadLine();
 
         }

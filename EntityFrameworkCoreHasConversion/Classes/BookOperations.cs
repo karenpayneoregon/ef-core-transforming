@@ -4,6 +4,7 @@ using System.Linq;
 using HasConversion.Data;
 using HasConversion.Models;
 using Spectre.Console;
+using static HasConversion.Models.BookVariantId;
 
 namespace HasConversion.Classes
 {
@@ -15,9 +16,10 @@ namespace HasConversion.Classes
 
             if (reCreate)
             {
+                Helpers.CleanDatabase(context);
                 AddRecords(context);
             }
-            
+
             ShowRecords(context);
 
         }
@@ -40,7 +42,7 @@ namespace HasConversion.Classes
                 allBooksTable.AddRow(
                     book.BookId.ToString(),
                     book.Title,
-                    book.BookCategory.ToString()
+                    book.BookVariantId.ToString()
                     );
             }
 
@@ -53,11 +55,11 @@ namespace HasConversion.Classes
                 .AddColumn("[b]Category[/]")
                 .Alignment(Justify.Center)
                 .BorderColor(Color.LightSlateGrey)
-                .Title("[yellow]Adventure books[/]");
+                .Title("[yellow]Programming books[/]");
 
 
             var list = bookList
-                .Where(books => books.BookCategory == BookVariantId.Programming)
+                .Where(books => books.BookVariantId == Programming)
                 .ToList();
 
             foreach (var book in list)
@@ -66,7 +68,7 @@ namespace HasConversion.Classes
                 adventureTable.AddRow(
                     book.BookId.ToString(),
                     book.Title,
-                    book.BookCategory.ToString());
+                    book.BookVariantId.ToString());
 
             }
 
@@ -76,18 +78,48 @@ namespace HasConversion.Classes
 
         private static void AddRecords(BookContext context)
         {
-            if (context.Book.ToList().Count == 0)
-            {
-                List<Book> list = new()
-                {
-                    new() { BookCategory = BookVariantId.Adventure, Title = "First book" },
-                    new() { BookCategory = BookVariantId.Automobile, Title = "Second book" },
-                    new() { BookCategory = BookVariantId.Adventure, Title = "Third book" }
-                };
 
-                context.AddRange(list);
-                Console.WriteLine($"Books saved {context.SaveChanges()}");
+            List<Book> list = new()
+            {
+                new()
+                {
+                    BookVariantId = Adventure,
+                    Title = "First book"
+                },
+                new()
+                {
+                    BookVariantId = Automobile,
+                    Title = "Second book"
+                },
+                new()
+                {
+                    BookVariantId = Programming,
+                    Title = "Third book"
+                },
+                new()
+                {
+                    BookVariantId = Adventure,
+                    Title = "Fourth book"
+                },
+                new()
+                {
+                    BookVariantId = Adventure,
+                    Title = "5th book"
+                }
+            };
+
+            context.AddRange(list);
+
+            try
+            {
+                context.SaveChanges();
             }
+            catch (Exception e)
+            {
+                //TODO
+            }
+            Console.WriteLine($"Books saved {context.SaveChanges()}");
+
         }
     }
 }

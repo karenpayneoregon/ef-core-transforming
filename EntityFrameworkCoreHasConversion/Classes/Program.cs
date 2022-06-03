@@ -28,7 +28,7 @@ namespace HasConversion
         public static void GetEnumDescriptions()
         {
 
-            var result = EnumHelper.GetItems<WineVariantId>();
+            List<ItemContainer> result = EnumHelper.GetItems<WineVariantId>();
 
             foreach (var container in result)
             {
