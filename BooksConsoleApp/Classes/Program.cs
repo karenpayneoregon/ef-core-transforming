@@ -10,7 +10,7 @@ namespace BooksConsoleApp
         [ModuleInitializer]
         public static void Init()
         {
-            Console.Title = "Code sample";
+            Console.Title = "Code sample: EF Core Enum conversions";
         }
     }
 }

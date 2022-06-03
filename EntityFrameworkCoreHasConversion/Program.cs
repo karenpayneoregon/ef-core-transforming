@@ -20,10 +20,6 @@ namespace HasConversion
              */
             //GetEnumDescriptions();
 
-            /*
-             * First attempt at using enum, no navigation
-             */
-            BookOperations.AddViewBooks(true);
 
             /*
              * Second attempt at using emun with navigation
