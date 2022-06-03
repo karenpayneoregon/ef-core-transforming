@@ -9,6 +9,11 @@ namespace Console1
     {
         static void Main(string[] args)
         {
+
+            AnsiConsole.MarkupLine("[b][white]Conventional DateTime with AM/PM[/][/]");
+            Console.WriteLine(DateTime.Now.ToString("dd/M/yyyy hh:mm:ss tt"));
+            Console.WriteLine();
+
             DoConvert1();
             DoConvert2();
 
