@@ -16,7 +16,7 @@ namespace HasConversion.Models
 
     }
 
-    public class BookVariant
+    public class BookNavigation
     {
         [Key]
         public BookCategory BookCategoryId { get; set; }

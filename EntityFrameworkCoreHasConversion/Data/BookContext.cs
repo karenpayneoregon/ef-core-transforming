@@ -21,7 +21,7 @@ namespace HasConversion.Data
         }
 
         public virtual DbSet<Book> Book { get; set; }
-        public DbSet<BookVariant> BookVariants { get; set; }
+        public DbSet<BookNavigation> BookVariants { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -43,10 +43,10 @@ namespace HasConversion.Data
                 .HasConversion<int>();
 
             modelBuilder
-                .Entity<BookVariant>().HasData(
+                .Entity<BookNavigation>().HasData(
                     Enum.GetValues(typeof(BookCategory))
                         .Cast<BookCategory>()
-                        .Select(e => new BookVariant()
+                        .Select(e => new BookNavigation()
                         {
                             BookCategoryId = e,
                             Name = e.ToString()
