@@ -10,3 +10,9 @@ var programmingBooks = bookList
 </br>
 
 ![Screen Shot](assets/ScreenShot.png)
+
+</br>
+
+**Debug view**
+
+![Screen Shot1](assets/ScreenShot1.png)
