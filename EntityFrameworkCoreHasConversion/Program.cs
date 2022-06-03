@@ -15,13 +15,42 @@ namespace HasConversion
         static void Main(string[] args)
         {
 
+            /*
+             * Get descriptions for enum which can be used in a user interface
+             */
+            GetEnumDescriptions();
+
+            /*
+             * First attempt at using enum, no navigation
+             */
+            //BookOperations.AddViewBooks(true);
+
+            /*
+             * Second attempt at using emun with navigation
+             */
             //WineOperations.AddViewWines();
-            //BookOperations.AddViewBooks();
-            //AccountOperations.ViewAccounts();
-            //MappingListProperty.AddView();
-            //PeopleOperations.AddViewPeople();
+
+            /*
+             * potpourri of standard converters
+             */
             //SomeOperations.AddView();
-            //GetEnumDescriptions();
+
+            /*
+             * String to list and back
+             */
+            //MappingListProperty.AddView();
+
+
+            /*
+             * Bool to string and back
+             * Color and back
+             */
+            //PeopleOperations.AddViewPeople();
+            
+            /*
+             * string to array and back
+             */
+            AccountOperations.ViewAccounts();
             Console.ReadLine();
 
         }

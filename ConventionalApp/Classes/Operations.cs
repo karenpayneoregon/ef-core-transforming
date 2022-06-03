@@ -19,7 +19,9 @@ namespace ConventionalApp.Classes
         {
             await using var cn = new SqlConnection(ConnectionString());
             await using var cmd = new SqlCommand() { Connection = cn };
+
             cmd.CommandText = "SELECT Id, SomeDateTime, SomeInt, SomeEnum, SomePrice FROM dbo.SomeEntities;";
+
             try
             {
                 await cn.OpenAsync();

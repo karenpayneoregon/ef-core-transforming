@@ -57,18 +57,21 @@ namespace HasConversion.Classes
 
 
             var list = bookList
-                .Where(books => books.BookCategory == BookCategory.Programming)
+                .Where(books => books.BookCategory == BookVariantId.Programming)
                 .ToList();
 
             foreach (var book in list)
             {
+
                 adventureTable.AddRow(
                     book.BookId.ToString(),
                     book.Title,
                     book.BookCategory.ToString());
+
             }
 
             AnsiConsole.Write(adventureTable);
+
         }
 
         private static void AddRecords(BookContext context)
@@ -77,9 +80,9 @@ namespace HasConversion.Classes
             {
                 List<Book> list = new()
                 {
-                    new() { BookCategory = BookCategory.Adventure, Title = "First book" },
-                    new() { BookCategory = BookCategory.Automobile, Title = "Second book" },
-                    new() { BookCategory = BookCategory.Adventure, Title = "Third book" }
+                    new() { BookCategory = BookVariantId.Adventure, Title = "First book" },
+                    new() { BookCategory = BookVariantId.Automobile, Title = "Second book" },
+                    new() { BookCategory = BookVariantId.Adventure, Title = "Third book" }
                 };
 
                 context.AddRange(list);

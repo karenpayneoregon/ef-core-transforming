@@ -29,7 +29,7 @@ namespace ConventionalApp.Classes
         /// <returns>Command object command text with parameter values</returns> 
         public static string ActualCommandText(this IDbCommand pCommand, CommandProvider pProvider = CommandProvider.SqlServer, string pQualifier = "@")
         {
-            var sb = new StringBuilder(pCommand.CommandText);
+            StringBuilder builder = new(pCommand.CommandText);
 
             if (pProvider != CommandProvider.Oracle)
             {
@@ -46,6 +46,7 @@ namespace ConventionalApp.Classes
                     return pCommand.CommandText;
                 }
             }
+            // ReSharper disable once ConditionIsAlwaysTrueOrFalse
             else if (pProvider == CommandProvider.Oracle)
             {
                 pQualifier = ":";
@@ -63,12 +64,12 @@ namespace ConventionalApp.Classes
                             throw new Exception($"no value given for parameter '{p.ParameterName}'");
                         }
 
-                        sb = sb.Replace(p.ParameterName, $"'{p.Value.ToString().Replace("'", "''")}'");
+                        builder = builder.Replace(p.ParameterName, $"'{p.Value.ToString().Replace("'", "''")}'");
 
                     }
                     else
                     {
-                        sb = sb.Replace(string.Concat(pQualifier, p.ParameterName), $"'{p.Value.ToString().Replace("'", "''")}'");
+                        builder = builder.Replace(string.Concat(pQualifier, p.ParameterName), $"'{p.Value.ToString().Replace("'", "''")}'");
                     }
                 }
                 else
@@ -78,12 +79,12 @@ namespace ConventionalApp.Classes
                      * value for that parameter so return the parameter name instead
                      * rather than a value.
                      */
-                    sb = pProvider == CommandProvider.Oracle ? sb.Replace(p.ParameterName, p.Value?.ToString() ?? p.ParameterName) :
-                        sb.Replace(p.ParameterName, p.Value.ToString());
+                    builder = pProvider == CommandProvider.Oracle ? builder.Replace(p.ParameterName, p.Value?.ToString() ?? p.ParameterName) :
+                        builder.Replace(p.ParameterName, p.Value.ToString());
                 }
             }
 
-            return sb.ToString();
+            return builder.ToString();
 
         }
     }

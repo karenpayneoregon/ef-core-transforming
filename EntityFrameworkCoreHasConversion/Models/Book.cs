@@ -11,18 +11,19 @@ namespace HasConversion.Models
     {
         public int BookId { get; set; }
         public string Title { get; set; }
-        public BookCategory BookCategory { get; set; }
+        public BookVariantId BookCategory { get; set; }
         public override string ToString() => Title;
 
     }
 
-    public class BookNavigation
+    public enum BookVariantId : int
     {
-        [Key]
-        public BookCategory BookCategoryId { get; set; }
-        public string Name { get; set; }
-        public List<Book> Books { get; set; }
-        public override string ToString() => Name;
-
+        SpaceTravel = 1,
+        Adventure = 2,
+        Romance = 3,
+        Sports = 4,
+        Automobile = 5,
+        Programming
     }
+
 }
