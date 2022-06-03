@@ -22,7 +22,6 @@ namespace HasConversion
             //PeopleOperations.AddViewPeople();
             //SomeOperations.AddView();
             //GetEnumDescriptions();
-
             Console.ReadLine();
 
         }

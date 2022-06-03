@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
@@ -23,7 +24,7 @@ namespace HasConversion.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
             => optionsBuilder
                 .UseSqlServer(
-                    "Server=(localdb)\\mssqllocaldb;Database=EF.Example2;Trusted_Connection=True");
+                    "Server=(localdb)\\mssqllocaldb;Database=EF.ExampleAmPm;Trusted_Connection=True");
     }
 
     public class DateItem
