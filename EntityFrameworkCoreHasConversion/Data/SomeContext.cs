@@ -20,6 +20,21 @@ namespace HasConversion.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
+            //var uppercaseConverter = new ValueConverter<string, string>(
+            //    v => v,
+            //    v => v.ToUpper());
+
+            //modelBuilder.Entity<SomeEntity>()
+            //    .Property(entity => entity.ShortName)
+            //    .HasConversion(new ValueConverter<string, string>(
+            //        toValue => toValue.ToUpper(),
+            //        fromValue => fromValue));
+
+            //modelBuilder.Entity<SomeEntity>()
+            //    .Property(entity => entity.ShortName)
+            //    .HasColumnName("short_name");
+
+
             modelBuilder.Entity<SomeEntity>()
                 .Property(entity => entity.SomeDateTime)
                 .HasConversion(new DateTimeToStringConverter());

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,16 +10,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HasConversion.Data
 {
+    /// <summary>
+    /// Work in progress
+    /// </summary>
     public class ExampleAmPmContext : DbContext  
     {
         public DbSet<DateItem> DateItem { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
-            modelBuilder
-                .Entity<DateItem>()
-                .Property(e => e.WantToBeDateTime)
-                .HasConversion<AmPmConverter>();
 
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

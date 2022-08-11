@@ -41,7 +41,7 @@ namespace HasConversion.Data
     {
         public AddressConverter() : base(
                 v => JsonSerializer.Serialize(v, null),
-                v => JsonSerializer.Deserialize<Address>(v, (JsonSerializerOptions)null))
+                v => JsonSerializer.Deserialize<Address>(v, null))
         {
         }
     }

@@ -7,7 +7,7 @@ using System.Globalization;
 
 namespace Console1.Classes
 {
-    public class DateTimeHelpers
+    public static class DateTimeHelpers
     {
         public static DateTimeFormatInfo AmDateTimeFormatInfo 
             => new()
@@ -15,5 +15,15 @@ namespace Console1.Classes
                 AMDesignator = "a. m.", 
                 PMDesignator = "p. m."
             };
+
+        public static DateTime FixAmPm(this string sender)
+        {
+            string[] endings = { "a. m.", "p. m." };
+
+
+            return endings.Any(sender.EndsWith) ? 
+                DateTime.ParseExact(sender, "dd/M/yyyy hh:mm:ss tt", AmDateTimeFormatInfo) : 
+                Convert.ToDateTime(sender);
+        }
     }
 }

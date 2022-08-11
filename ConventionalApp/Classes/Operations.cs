@@ -34,6 +34,7 @@ namespace ConventionalApp.Classes
             }
         }
 
+
         public static async Task<(bool success, Exception exception)> UpdateEntity(SomeEntity entity)
         {
             await using var cn = new SqlConnection(ConnectionString());
