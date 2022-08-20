@@ -6,13 +6,12 @@ namespace DateOnlyApp
     {
         static void Main(string[] args)
         {
-            
+
             AnsiConsole.MarkupLine("[yellow]Reading people[/]");
 
-           
             using var context = new Context();
 
-            var table = KP_ConsoleAppNet6.Program.CreateTable();
+            var table = CreateTable();
 
             var people = context.Person.ToList();
 

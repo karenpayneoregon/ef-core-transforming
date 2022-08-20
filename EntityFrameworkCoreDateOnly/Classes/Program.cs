@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 // ReSharper disable once CheckNamespace
-namespace KP_ConsoleAppNet6
+namespace DateOnlyApp
 {
     internal partial class Program
     {
