@@ -16,7 +16,8 @@ namespace KP_ConsoleAppNet6
             Console.Title = "EF Core 6 DateOnly code sample";
             WindowUtility.SetConsoleWindowPosition(WindowUtility.AnchorWindow.Center);
         }
-        private static Table CreateTable()
+
+        public static Table CreateTable()
         {
             var table = new Table()
                 .RoundedBorder()

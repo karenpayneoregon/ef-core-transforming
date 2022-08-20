@@ -1,7 +1,5 @@
 ﻿#nullable disable
-using KP_ConsoleAppNet6;
-
-namespace KP_ConsoleAppNet6.Classes;
+namespace DateOnlyApp.Classes;
 
 internal class DateOnlyConverter : ValueConverter<DateOnly, DateTime>
 {

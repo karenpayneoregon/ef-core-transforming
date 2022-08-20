@@ -1,6 +1,6 @@
-﻿using KP_ConsoleAppNet6.Data;
+﻿using DateOnlyApp.Data;
 
-namespace KP_ConsoleAppNet6
+namespace DateOnlyApp
 {
     internal partial class Program
     {
@@ -9,12 +9,10 @@ namespace KP_ConsoleAppNet6
             
             AnsiConsole.MarkupLine("[yellow]Reading people[/]");
 
-            DateOnly exampleDateOnly = new DateOnly(2022, 8, 21);
-            Console.WriteLine(exampleDateOnly);
-            
+           
             using var context = new Context();
 
-            var table = CreateTable();
+            var table = KP_ConsoleAppNet6.Program.CreateTable();
 
             var people = context.Person.ToList();
 

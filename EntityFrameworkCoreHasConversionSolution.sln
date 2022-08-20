@@ -26,7 +26,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BooksLibrary", "BooksLibrar
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BooksConsoleApp", "BooksConsoleApp\BooksConsoleApp.csproj", "{75CAC069-131B-44B4-A258-657333BD9DFF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KP_ConsoleAppNet6", "KP_ConsoleAppNet6\KP_ConsoleAppNet6.csproj", "{E4033B36-A97F-4FBA-8CE9-58A9986866A8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DateOnlyApp", "EntityFrameworkCoreDateOnly\DateOnlyApp.csproj", "{26AB2C65-E806-4A5B-83A1-4C3195D6BA4C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -62,10 +62,10 @@ Global
 		{75CAC069-131B-44B4-A258-657333BD9DFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75CAC069-131B-44B4-A258-657333BD9DFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75CAC069-131B-44B4-A258-657333BD9DFF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E4033B36-A97F-4FBA-8CE9-58A9986866A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E4033B36-A97F-4FBA-8CE9-58A9986866A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E4033B36-A97F-4FBA-8CE9-58A9986866A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E4033B36-A97F-4FBA-8CE9-58A9986866A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26AB2C65-E806-4A5B-83A1-4C3195D6BA4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26AB2C65-E806-4A5B-83A1-4C3195D6BA4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26AB2C65-E806-4A5B-83A1-4C3195D6BA4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26AB2C65-E806-4A5B-83A1-4C3195D6BA4C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
