@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.32428.217
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32804.467
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HasConversion", "EntityFrameworkCoreHasConversion\HasConversion.csproj", "{17144FDD-BCBA-4078-87EF-526A0705F7A6}"
 EndProject
@@ -22,9 +22,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EF.ValidationResultExample"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Console1", "Console1\Console1.csproj", "{7A188EA4-E4B1-4C05-8346-A652CF70790C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BooksLibrary", "BooksLibrary\BooksLibrary.csproj", "{10B3827F-1D13-420A-81A7-1491C6BBFD1D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BooksLibrary", "BooksLibrary\BooksLibrary.csproj", "{10B3827F-1D13-420A-81A7-1491C6BBFD1D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BooksConsoleApp", "BooksConsoleApp\BooksConsoleApp.csproj", "{75CAC069-131B-44B4-A258-657333BD9DFF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BooksConsoleApp", "BooksConsoleApp\BooksConsoleApp.csproj", "{75CAC069-131B-44B4-A258-657333BD9DFF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KP_ConsoleAppNet6", "KP_ConsoleAppNet6\KP_ConsoleAppNet6.csproj", "{E4033B36-A97F-4FBA-8CE9-58A9986866A8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -60,6 +62,10 @@ Global
 		{75CAC069-131B-44B4-A258-657333BD9DFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75CAC069-131B-44B4-A258-657333BD9DFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75CAC069-131B-44B4-A258-657333BD9DFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4033B36-A97F-4FBA-8CE9-58A9986866A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4033B36-A97F-4FBA-8CE9-58A9986866A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4033B36-A97F-4FBA-8CE9-58A9986866A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4033B36-A97F-4FBA-8CE9-58A9986866A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
