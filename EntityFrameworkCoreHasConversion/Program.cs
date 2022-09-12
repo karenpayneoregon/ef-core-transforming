@@ -42,11 +42,13 @@ namespace HasConversion
              * Color and back
              */
             //PeopleOperations.AddViewPeople();
-            
+
             /*
              * string to array and back
              */
             //AccountOperations.ViewAccounts();
+
+            AmPmOperations.Example();
             Console.ReadLine();
 
         }

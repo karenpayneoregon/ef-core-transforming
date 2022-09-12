@@ -23,6 +23,8 @@ namespace HasConversion.Models
 
         public Dollars SomePrice { get; set; }
 
+        //public string ShortName { get; set; }
+
         public override string ToString() => Id.ToString();
 
     }
