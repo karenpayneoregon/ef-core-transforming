@@ -445,3 +445,5 @@ In this article there are enough code to run and study to learn the basics of tr
 # NuGet packages
 
 [Spectre.Console](https://spectreconsole.net/) provided classes to provide clear ways to present data. [Package](https://www.nuget.org/packages/Spectre.Console/0.44.1-preview.0.17).
+
+https://marcominerva.wordpress.com/2022/01/07/dateonly-and-timeonly-support-with-entity-framework-core-6-0/
