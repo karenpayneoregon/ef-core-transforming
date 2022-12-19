@@ -46,7 +46,7 @@ namespace HasConversion
             /*
              * string to array and back
              */
-            //AccountOperations.ViewAccounts();
+            AccountOperations.ViewAccounts();
 
             //AmPmOperations.Example();
             Console.ReadLine();
