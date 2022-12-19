@@ -10,7 +10,7 @@ namespace BooksConsoleApp
     {
         static void Main(string[] args)
         {
-            var bookList = BookOperations.AddViewBooks(false);
+            var bookList = BookOperations.AddViewBooks(true);
 
             var allBooksTable = new Table()
                 .RoundedBorder()
