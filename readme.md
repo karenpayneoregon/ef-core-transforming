@@ -437,6 +437,12 @@ In this article there are enough code to run and study to learn the basics of tr
 
 :small_orange_diamond: Some coders may look for places to use what has been presented while the reverse should be the path, tuck these away and when a situation arises you have a solution.
 
+# Improvements to HasConversion API
+
+[For EF Core 6](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-6.0/whatsnew#improvements-to-hasconversion-api) 
+
+Before EF Core 6.0, the generic overloads of the HasConversion methods used the generic parameter to specify the type to convert to.
+
 # See also
 
 - [khalidabuhakmeh](https://twitter.com/buhakmeh) [Entity Framework Core 5 Value Converters](https://khalidabuhakmeh.com/entity-framework-core-5-value-converters)
