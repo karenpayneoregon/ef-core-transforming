@@ -29,12 +29,12 @@ namespace HasConversion
             /*
              * potpourri of standard converters
              */
-            SomeOperations.AddView();
+            //SomeOperations.AddView();
 
             /*
              * String to list and back
              */
-            //MappingListProperty.AddView();
+            //MappingListProperty.AddView(true);
 
 
             /*
@@ -46,7 +46,7 @@ namespace HasConversion
             /*
              * string to array and back
              */
-            //AccountOperations.ViewAccounts();
+            AccountOperations.ViewAccounts();
 
             //AmPmOperations.Example();
             Console.ReadLine();

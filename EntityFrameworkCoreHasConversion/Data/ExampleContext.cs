@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿
+using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
@@ -41,8 +39,8 @@ namespace HasConversion.Data
     public class AddressConverter : ValueConverter<Address, string>
     {
         public AddressConverter() : base(
-                v => JsonSerializer.Serialize(v, null),
-                v => JsonSerializer.Deserialize<Address>(v, null))
+                v => JsonSerializer.Serialize(v, (JsonSerializerOptions)null),
+                v => JsonSerializer.Deserialize<Address>(v, (JsonSerializerOptions)null))
         {
         }
     }
