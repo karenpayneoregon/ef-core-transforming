@@ -1,142 +1,138 @@
-﻿using System;
-using System.Globalization;
-using System.Windows.Forms;
+﻿using System.Globalization;
 
-namespace ConventionalApp.Classes
+namespace ConventionalApp.Classes;
+
+public class DataGridViewCalendarColumn : DataGridViewColumn
 {
-
-    public class DataGridViewCalendarColumn : DataGridViewColumn
+    public DataGridViewCalendarColumn() : base(new CalendarCell())
     {
-        public DataGridViewCalendarColumn() : base(new CalendarCell())
+    }
+    public override DataGridViewCell CellTemplate
+    {
+        get => base.CellTemplate;
+        set
         {
-        }
-        public override DataGridViewCell CellTemplate
-        {
-            get => base.CellTemplate;
-            set
+            if (value != null && !(value.GetType().IsAssignableFrom(typeof(CalendarCell))))
             {
-                if (value != null && !(value.GetType().IsAssignableFrom(typeof(CalendarCell))))
-                {
-                    throw new InvalidCastException("Must be a CalendarCell");
-                }
-
-                base.CellTemplate = value;
+                throw new InvalidCastException("Must be a CalendarCell");
             }
+
+            base.CellTemplate = value;
         }
     }
-    public class CalendarCell : DataGridViewTextBoxCell
+}
+public class CalendarCell : DataGridViewTextBoxCell
+{
+    public CalendarCell()
     {
-        public CalendarCell()
-        {
-            EmptyDate = DateTime.Now;
-        }
-        /// <summary>
-        /// Set default Date
-        /// </summary>
-        public DateTime EmptyDate { get; set; }
-
-        public override void InitializeEditingControl(int rowIndex, object initialFormattedValue, DataGridViewCellStyle dataGridViewCellStyle)
-        {
-            base.InitializeEditingControl(rowIndex, initialFormattedValue, dataGridViewCellStyle);
-            var theControl = (CalendarEditingControl)DataGridView.EditingControl;
-
-            if (Convert.IsDBNull(Value) || (Value == null))
-            {
-                theControl.Value = DateTime.Now;
-            }
-            else
-            {
-                theControl.Value = Convert.ToDateTime(Value);
-            }
-
-        }
-        public override Type EditType => typeof(CalendarEditingControl);
-        public override Type ValueType => typeof(DateTime);
-        public override object DefaultNewRowValue => DateTime.Now;
+        EmptyDate = DateTime.Now;
     }
     /// <summary>
-    /// Provides Calendar popup within the DataGridView.
+    /// Set default Date
     /// </summary>
-    /// <remarks></remarks>
-    internal class CalendarEditingControl : DateTimePicker, IDataGridViewEditingControl
+    public DateTime EmptyDate { get; set; }
+
+    public override void InitializeEditingControl(int rowIndex, object initialFormattedValue, DataGridViewCellStyle dataGridViewCellStyle)
     {
-        private DataGridView _dataGridViewControl;
-        private bool _valueChanged = false;
-        private int _rowIndexNumber;
+        base.InitializeEditingControl(rowIndex, initialFormattedValue, dataGridViewCellStyle);
+        var theControl = (CalendarEditingControl)DataGridView!.EditingControl;
 
-        public CalendarEditingControl()
+        if (Convert.IsDBNull(Value) || (Value == null))
         {
-            Format = DateTimePickerFormat.Short;
+            theControl.Value = DateTime.Now;
+        }
+        else
+        {
+            theControl.Value = Convert.ToDateTime(Value);
         }
 
-        public object EditingControlFormattedValue
+    }
+    public override Type EditType => typeof(CalendarEditingControl);
+    public override Type ValueType => typeof(DateTime);
+    public override object DefaultNewRowValue => DateTime.Now;
+}
+/// <summary>
+/// Provides Calendar popup within the DataGridView.
+/// </summary>
+/// <remarks></remarks>
+internal class CalendarEditingControl : DateTimePicker, IDataGridViewEditingControl
+{
+    private DataGridView _dataGridViewControl;
+    private bool _valueChanged = false;
+    private int _rowIndexNumber;
+
+    public CalendarEditingControl()
+    {
+        Format = DateTimePickerFormat.Short;
+    }
+
+    public object EditingControlFormattedValue
+    {
+        get => Value.ToShortDateString();
+        set
         {
-            get => Value.ToShortDateString();
-            set
+            if (value is string)
             {
-                if (value is string)
-                {
-                    Value = DateTime.Parse(Convert.ToString(value));
-                }
+                Value = DateTime.Parse(Convert.ToString(value));
             }
         }
-        public object GetEditingControlFormattedValue(DataGridViewDataErrorContexts context)
-        {
-            return Value.ToString(CultureInfo.InvariantCulture);
-        }
-        public void ApplyCellStyleToEditingControl(DataGridViewCellStyle dataGridViewCellStyle)
-        {
-            Font = dataGridViewCellStyle.Font;
-            CalendarForeColor = dataGridViewCellStyle.ForeColor;
-            CalendarMonthBackground = dataGridViewCellStyle.BackColor;
-        }
+    }
+    public object GetEditingControlFormattedValue(DataGridViewDataErrorContexts context)
+    {
+        return Value.ToString(CultureInfo.InvariantCulture);
+    }
+    public void ApplyCellStyleToEditingControl(DataGridViewCellStyle dataGridViewCellStyle)
+    {
+        Font = dataGridViewCellStyle.Font;
+        CalendarForeColor = dataGridViewCellStyle.ForeColor;
+        CalendarMonthBackground = dataGridViewCellStyle.BackColor;
+    }
 
-        /// <inheritdoc />
-        public int EditingControlRowIndex
+    /// <inheritdoc />
+    public int EditingControlRowIndex
+    {
+        get => _rowIndexNumber;
+        set => _rowIndexNumber = value;
+    }
+    public bool EditingControlWantsInputKey(Keys key, bool dataGridViewWantsInputKey)
+    {
+        if (((key & Keys.KeyCode) == Keys.Left) ||
+            ((key & Keys.KeyCode) == Keys.Up) ||
+            ((key & Keys.KeyCode) == Keys.Down) ||
+            ((key & Keys.KeyCode) == Keys.Right) ||
+            ((key & Keys.KeyCode) == Keys.Home) ||
+            ((key & Keys.KeyCode) == Keys.End) ||
+            ((key & Keys.KeyCode) == Keys.PageDown) ||
+            ((key & Keys.KeyCode) == Keys.PageUp))
         {
-            get => _rowIndexNumber;
-            set => _rowIndexNumber = value;
+            return true;
         }
-        public bool EditingControlWantsInputKey(Keys key, bool dataGridViewWantsInputKey)
+        else
         {
-            if (((key & Keys.KeyCode) == Keys.Left) ||
-                ((key & Keys.KeyCode) == Keys.Up) ||
-                ((key & Keys.KeyCode) == Keys.Down) ||
-                ((key & Keys.KeyCode) == Keys.Right) ||
-                ((key & Keys.KeyCode) == Keys.Home) ||
-                ((key & Keys.KeyCode) == Keys.End) ||
-                ((key & Keys.KeyCode) == Keys.PageDown) ||
-                ((key & Keys.KeyCode) == Keys.PageUp))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return false;
         }
-        public void PrepareEditingControlForEdit(bool selectAll)
-        {
-        }
-        public bool RepositionEditingControlOnValueChange => false;
+    }
+    public void PrepareEditingControlForEdit(bool selectAll)
+    {
+    }
+    public bool RepositionEditingControlOnValueChange => false;
 
-        public DataGridView EditingControlDataGridView
-        {
-            get => _dataGridViewControl;
-            set => _dataGridViewControl = value;
-        }
-        public bool EditingControlValueChanged
-        {
-            get => _valueChanged;
-            set => _valueChanged = value;
-        }
-        Cursor IDataGridViewEditingControl.EditingPanelCursor => EditingControlCursor;
-        public Cursor EditingControlCursor => base.Cursor;
-        protected override void OnValueChanged(EventArgs eventArgs)
-        {
-            _valueChanged = true;
-            EditingControlDataGridView.NotifyCurrentCellDirty(true);
-            base.OnValueChanged(eventArgs);
-        }
+    public DataGridView EditingControlDataGridView
+    {
+        get => _dataGridViewControl;
+        set => _dataGridViewControl = value;
+    }
+    public bool EditingControlValueChanged
+    {
+        get => _valueChanged;
+        set => _valueChanged = value;
+    }
+    Cursor IDataGridViewEditingControl.EditingPanelCursor => EditingControlCursor;
+    public Cursor EditingControlCursor => base.Cursor;
+    protected override void OnValueChanged(EventArgs eventArgs)
+    {
+        _valueChanged = true;
+        EditingControlDataGridView.NotifyCurrentCellDirty(true);
+        base.OnValueChanged(eventArgs);
     }
 }
