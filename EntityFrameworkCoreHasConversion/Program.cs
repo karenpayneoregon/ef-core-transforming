@@ -24,12 +24,12 @@ namespace HasConversion
             /*
              * Second attempt at using emun with navigation
              */
-            //WineOperations.AddViewWines();
+            //WineOperations.AddViewWines(true);
 
             /*
              * potpourri of standard converters
              */
-            //SomeOperations.AddView();
+            SomeOperations.AddView();
 
             /*
              * String to list and back
@@ -48,7 +48,7 @@ namespace HasConversion
              */
             //AccountOperations.ViewAccounts();
 
-            AmPmOperations.Example();
+            //AmPmOperations.Example();
             Console.ReadLine();
 
         }

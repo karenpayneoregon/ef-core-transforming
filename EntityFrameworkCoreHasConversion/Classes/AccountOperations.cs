@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using HasConversion.Data;
 using HasConversion.Models;
 using Newtonsoft.Json;
@@ -29,8 +26,8 @@ namespace HasConversion.Classes
                 }
             };
 
-            return JsonConvert.DeserializeObject<Account>(
-                JsonConvert.SerializeObject(account, Formatting.Indented));
+            return JsonConvert.DeserializeObject<Account>(JsonConvert.SerializeObject(account, Formatting.Indented));
+
         }
         public static void ViewAccounts()
         {

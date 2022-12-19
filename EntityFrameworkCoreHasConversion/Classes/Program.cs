@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using ConsoleHelperLibrary.Classes;
 using HasConversion.Classes;
 using HasConversion.Data;
 using HasConversion.Models;
 using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json;
+//using Newtonsoft.Json;
 using Spectre.Console;
 
 
@@ -19,7 +20,8 @@ namespace HasConversion
         [ModuleInitializer]
         public static void Init()
         {
-            Console.Title = "Code sample";
+            Console.Title = "Code sample: Has conversions";
+            WindowUtility.SetConsoleWindowPosition(WindowUtility.AnchorWindow.Center);
         }
 
         /// <summary>
