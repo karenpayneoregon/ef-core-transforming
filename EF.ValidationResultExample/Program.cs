@@ -6,37 +6,36 @@ using Spectre.Console;
 using static System.Console;
 using ValidationResult = System.ComponentModel.DataAnnotations.ValidationResult;
 
-namespace EF.ValidationResultExample
+namespace EF.ValidationResultExample;
+
+partial class Program
 {
-    partial class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            AnsiConsole.Write(new Rule($"[yellow]{Title}[/]").LeftAligned().RuleStyle("grey"));
-            AnsiConsole.WriteLine();
+        AnsiConsole.Write(new Rule($"[yellow]{Title}[/]").LeftAligned().RuleStyle("grey"));
+        AnsiConsole.WriteLine();
 
-            using var context = new BookContext();
-            //IEnumerable<ValidationResult> validationResults;
-            Book book = BookMissingTitleAndAuthor();
+        using var context = new BookContext();
+        //IEnumerable<ValidationResult> validationResults;
+        Book book = BookMissingTitleAndAuthor();
 
-            AnsiConsole.WriteLine();
+        AnsiConsole.WriteLine();
 
-            BookMissingAuthor();
+        BookMissingAuthor();
 
-            AnsiConsole.WriteLine();
+        AnsiConsole.WriteLine();
 
-            BookIsValid();
+        BookIsValid();
             
-            ReadLine();
+        ReadLine();
 
-        }
+    }
 
-        private static void PlayWithBook()
-        {
-            Book testBook = new ();
-            var validationContext = new ValidationContext(testBook);
-            var validationResults = testBook.Validate(validationContext);
-            WriteLine(validationResults.IsValid());
-        }
+    private static void PlayWithBook()
+    {
+        Book testBook = new ();
+        var validationContext = new ValidationContext(testBook);
+        var validationResults = testBook.Validate(validationContext);
+        WriteLine(validationResults.IsValid());
     }
 }

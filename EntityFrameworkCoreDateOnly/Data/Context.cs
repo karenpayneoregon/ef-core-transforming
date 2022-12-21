@@ -8,48 +8,47 @@ using DateOnlyApp.Classes;
 using KP_ConsoleAppNet6.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace DateOnlyApp.Data
+namespace DateOnlyApp.Data;
+
+public partial class Context : DbContext
 {
-    public partial class Context : DbContext
+    public Context()
     {
-        public Context()
+    }
+
+    public Context(DbContextOptions<Context> options)
+        : base(options)
+    {
+    }
+
+    public virtual DbSet<Person> Person { get; set; }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        if (!optionsBuilder.IsConfigured)
         {
+
+            optionsBuilder.UseSqlServer("Data Source=.\\SQLEXPRESS;Initial Catalog=HasConversions;Integrated Security=True");
+            optionsBuilder.UseSqlServer(ConfigurationHelper.ConnectionString());
         }
+    }
 
-        public Context(DbContextOptions<Context> options)
-            : base(options)
-        {
-        }
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.ApplyConfiguration(new KP_ConsoleAppNet6.Data.Configurations.PersonConfiguration());
 
-        public virtual DbSet<Person> Person { get; set; }
+        modelBuilder.HasSequence<int>("seq_test").HasMin(1);
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
+        OnModelCreatingPartial(modelBuilder);
+    }
 
-                optionsBuilder.UseSqlServer("Data Source=.\\SQLEXPRESS;Initial Catalog=HasConversions;Integrated Security=True");
-                optionsBuilder.UseSqlServer(ConfigurationHelper.ConnectionString());
-            }
-        }
+    partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.ApplyConfiguration(new KP_ConsoleAppNet6.Data.Configurations.PersonConfiguration());
-
-            modelBuilder.HasSequence<int>("seq_test").HasMin(1);
-
-            OnModelCreatingPartial(modelBuilder);
-        }
-
-        partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
-
-        protected override void ConfigureConventions(ModelConfigurationBuilder builder)
-        {
-            builder.Properties<DateOnly>()
-                .HaveConversion<DateOnlyConverter>()
-                .HaveColumnType("date");
-            base.ConfigureConventions(builder);
-        }
+    protected override void ConfigureConventions(ModelConfigurationBuilder builder)
+    {
+        builder.Properties<DateOnly>()
+            .HaveConversion<DateOnlyConverter>()
+            .HaveColumnType("date");
+        base.ConfigureConventions(builder);
     }
 }

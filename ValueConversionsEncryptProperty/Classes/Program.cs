@@ -2,15 +2,14 @@
 
 
 // ReSharper disable once CheckNamespace
-namespace ValueConversionsEncryptProperty
+namespace ValueConversionsEncryptProperty;
+
+internal partial class Program
 {
-    internal partial class Program
+    [ModuleInitializer]
+    public static void Init()
     {
-        [ModuleInitializer]
-        public static void Init()
-        {
-            Console.Title = "Code sample";
-            WindowUtility.SetConsoleWindowPosition(WindowUtility.AnchorWindow.Center);
-        }
+        Console.Title = "Code sample";
+        WindowUtility.SetConsoleWindowPosition(WindowUtility.AnchorWindow.Center);
     }
 }
