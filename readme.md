@@ -449,6 +449,7 @@ Before EF Core 6.0, the generic overloads of the HasConversion methods used the 
 
 - [khalidabuhakmeh](https://twitter.com/buhakmeh) [Entity Framework Core 5 Value Converters](https://khalidabuhakmeh.com/entity-framework-core-5-value-converters)
 - [Entity Framework Core – Improved Value Conversion Support](https://www.thinktecture.com/en/entity-framework-core/improved-value-conversion-support-in-2-1/)
+- [EF Core 7 code sample](https://github.com/karenpayneoregon/ef-core-7-samples) for [Json Columns](http://example.com)
 
 # NuGet packages
 
