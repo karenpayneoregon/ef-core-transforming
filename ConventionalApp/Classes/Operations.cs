@@ -1,107 +1,102 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ConfigurationLibrary.LanguageExtensions;
 using ConventionalApp.Models;
 using static ConfigurationLibrary.Classes.ConfigurationHelper;
 
-namespace ConventionalApp.Classes
+namespace ConventionalApp.Classes;
+
+public class Operations
 {
-    public class Operations
+    public static async Task<bool> CanConnect()
     {
-        public static async Task<bool> CanConnect()
+        await using var cn = new SqlConnection(ConnectionString());
+        await using var cmd = new SqlCommand() { Connection = cn };
+
+        cmd.CommandText = "SELECT Id, SomeDateTime, SomeInt, SomeEnum, SomePrice FROM dbo.SomeEntities;";
+
+        try
         {
-            await using var cn = new SqlConnection(ConnectionString());
-            await using var cmd = new SqlCommand() { Connection = cn };
+            await cn.OpenAsync();
 
-            cmd.CommandText = "SELECT Id, SomeDateTime, SomeInt, SomeEnum, SomePrice FROM dbo.SomeEntities;";
-
-            try
-            {
-                await cn.OpenAsync();
-
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+            return true;
         }
-
-
-        public static async Task<(bool success, Exception exception)> UpdateEntity(SomeEntity entity)
+        catch (Exception)
         {
-            await using var cn = new SqlConnection(ConnectionString());
-            await using var cmd = new SqlCommand() { Connection = cn };
+            return false;
+        }
+    }
 
-            cmd.CommandText = UpdateStatement;
 
-            entity.SomeGuid = Guid.NewGuid();
+    public static async Task<(bool success, Exception exception)> UpdateEntity(SomeEntity entity)
+    {
+        await using var cn = new SqlConnection(ConnectionString());
+        await using var cmd = new SqlCommand() { Connection = cn };
 
-            cmd.Parameters.Add("@SomeDateTime", SqlDbType.NVarChar).Value = entity.SomeDateTime
-                .ToString(CultureInfo.InvariantCulture);
+        cmd.CommandText = UpdateStatement;
 
-            cmd.Parameters.Add("@SomeGuid", SqlDbType.NVarChar).Value = entity.SomeGuid.ToString();
-            cmd.Parameters.Add("@SomeInt", SqlDbType.NVarChar).Value = entity.SomeInt;
-            cmd.Parameters.Add("@SomeEnum", SqlDbType.NVarChar).Value = entity.SomeEnum;
-            cmd.Parameters.Add("@SomePrice", SqlDbType.Decimal).Value = entity.SomePrice.Amount;
-            cmd.Parameters.Add("@Identifier", SqlDbType.Int).Value = entity.Id;
+        entity.SomeGuid = Guid.NewGuid();
 
-            Debug.WriteLine(cmd.ActualCommandText());
+        cmd.Parameters.Add("@SomeDateTime", SqlDbType.NVarChar).Value = entity.SomeDateTime
+            .ToString(CultureInfo.InvariantCulture);
+
+        cmd.Parameters.Add("@SomeGuid", SqlDbType.NVarChar).Value = entity.SomeGuid.ToString();
+        cmd.Parameters.Add("@SomeInt", SqlDbType.NVarChar).Value = entity.SomeInt;
+        cmd.Parameters.Add("@SomeEnum", SqlDbType.NVarChar).Value = entity.SomeEnum;
+        cmd.Parameters.Add("@SomePrice", SqlDbType.Decimal).Value = entity.SomePrice.Amount;
+        cmd.Parameters.Add("@Identifier", SqlDbType.Int).Value = entity.Id;
+
+        Debug.WriteLine(cmd.ActualCommandText());
             
 
-            await cn.OpenAsync();
+        await cn.OpenAsync();
 
-            try
-            {
-                cmd.ExecuteNonQuery();
-                return (true, null);
-            }
-            catch (Exception localException)
-            {
-
-                return (false, localException);
-            }
+        try
+        {
+            cmd.ExecuteNonQuery();
+            return (true, null);
         }
-
-        public static async Task<List<SomeEntity>> ReadEntitiesAsync()
+        catch (Exception localException)
         {
 
-            List<SomeEntity> list = new();
+            return (false, localException);
+        }
+    }
 
-            await using var cn = new SqlConnection(ConnectionString());
-            await using var cmd = new SqlCommand() { Connection = cn };
+    public static async Task<List<SomeEntity>> ReadEntitiesAsync()
+    {
 
-            cmd.CommandText = "SELECT Id, SomeDateTime, SomeInt, SomeEnum, SomePrice FROM dbo.SomeEntities;";
+        List<SomeEntity> list = new();
 
-            await cn.OpenAsync();
+        await using var cn = new SqlConnection(ConnectionString());
+        await using var cmd = new SqlCommand() { Connection = cn };
 
-            var reader = await cmd.ExecuteReaderAsync();
+        cmd.CommandText = "SELECT Id, SomeDateTime, SomeInt, SomeEnum, SomePrice FROM dbo.SomeEntities;";
 
-            while (reader.Read())
+        await cn.OpenAsync();
+
+        var reader = await cmd.ExecuteReaderAsync();
+
+        while (reader.Read())
+        {
+            SomeEntity entity = new()
             {
-                SomeEntity entity = new()
-                {
-                    Id = reader.GetInt32(0),
-                    SomeDateTime = Convert.ToDateTime(reader.GetString(1)),
-                    SomeInt = Convert.ToInt32(reader.GetString(2)),
-                    SomeEnum = reader.GetString(3).ToEnum(SomeEnum.First)
-                };
+                Id = reader.GetInt32(0),
+                SomeDateTime = Convert.ToDateTime(reader.GetString(1)),
+                SomeInt = Convert.ToInt32(reader.GetString(2)),
+                SomeEnum = reader.GetString(3).ToEnum(SomeEnum.First)
+            };
 
-                list.Add(entity);
-            }
-
-            return list;
-
+            list.Add(entity);
         }
 
-        public static string UpdateStatement => @"
+        return list;
+
+    }
+
+    public static string UpdateStatement => @"
         UPDATE dbo.SomeEntities
           SET 
               SomeDateTime = @SomeDateTime, 
@@ -111,5 +106,4 @@ namespace ConventionalApp.Classes
               SomePrice = @SomePrice
         WHERE Id = @Identifier;";
 
-    }
 }

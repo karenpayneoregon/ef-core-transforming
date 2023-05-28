@@ -1,21 +1,14 @@
-﻿using System;
-using System.Runtime.CompilerServices;
+﻿using System.Runtime.CompilerServices;
 
 
 // ReSharper disable once CheckNamespace
-namespace BooksConsoleApp
+namespace BooksConsoleApp;
+
+partial class Program
 {
-    partial class Program
+    [ModuleInitializer]
+    public static void Init()
     {
-        [ModuleInitializer]
-        public static void Init()
-        {
-            Console.Title = "Code sample: EF Core Enum conversions";
-        }
+        Console.Title = "Code sample: EF Core Enum conversions";
     }
 }
-
-
-
-
-

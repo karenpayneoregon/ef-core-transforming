@@ -77,7 +77,7 @@ public static class EntityExtensions
 
         foreach (IProperty itemProperty in properties)
         {
-            SqlColumn sqlColumn = new SqlColumn
+            SqlColumn sqlColumn = new()
             {
                 Name = itemProperty.Name,
                 IsPrimaryKey = itemProperty.IsKey(),
@@ -138,7 +138,7 @@ public static class EntityExtensions
 
         if (context == null) throw new ArgumentNullException(nameof(context));
 
-        var commentList = new List<ModelComment>();
+        List<ModelComment> commentList = new();
 
         IEnumerable<IEntityType> entityTypes = context.GetService<IDesignTimeModel>()
             .Model.GetEntityTypes()

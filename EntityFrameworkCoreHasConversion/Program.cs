@@ -24,7 +24,7 @@ namespace HasConversion
             /*
              * Second attempt at using emun with navigation
              */
-            //WineOperations.AddViewWines();
+            //WineOperations.AddViewWines(true);
 
             /*
              * potpourri of standard converters
@@ -34,7 +34,7 @@ namespace HasConversion
             /*
              * String to list and back
              */
-            //MappingListProperty.AddView();
+            //MappingListProperty.AddView(true);
 
 
             /*
@@ -46,9 +46,9 @@ namespace HasConversion
             /*
              * string to array and back
              */
-            //AccountOperations.ViewAccounts();
+            AccountOperations.ViewAccounts();
 
-            AmPmOperations.Example();
+            //AmPmOperations.Example();
             Console.ReadLine();
 
         }

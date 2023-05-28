@@ -25,11 +25,12 @@ namespace EntityFrameworkApp.Extensions
         /// <param name="senderInstance">Instance of concrete class</param>
         /// <returns>True if not null, false if null</returns>
         public static bool IsNotNull<T>(this T senderInstance) where T : new() => !senderInstance.IsNull();
-        public static string SplitCamelCase(this string sender)
-            => Regex.Replace(Regex.Replace(sender, @"(\P{Ll})(\P{Ll}\p{Ll})", "$1 $2"), @"(\p{Ll})(\P{Ll})", "$1 $2");
-
-
-
+        /// <summary>
+        /// Use to split on upper cased characters and separate with a single space.
+        /// </summary>
+        public static string SplitCamelCase(this string sender) =>
+            string.Join(" ", Regex.Matches(sender, @"([A-Z][a-z]+)")
+                .Select(m => m.Value));
 
     }
 }

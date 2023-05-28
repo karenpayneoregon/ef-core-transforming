@@ -7,17 +7,16 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
 
-namespace KP_ConsoleAppNet6.Data.Configurations
+namespace KP_ConsoleAppNet6.Data.Configurations;
+
+public partial class PersonConfiguration : IEntityTypeConfiguration<Person>
 {
-    public partial class PersonConfiguration : IEntityTypeConfiguration<Person>
+    public void Configure(EntityTypeBuilder<Person> entity)
     {
-        public void Configure(EntityTypeBuilder<Person> entity)
-        {
-            entity.Property(e => e.BirthDate).HasColumnType("date");
+        entity.Property(e => e.BirthDate).HasColumnType("date");
 
-            OnConfigurePartial(entity);
-        }
-
-        partial void OnConfigurePartial(EntityTypeBuilder<Person> entity);
+        OnConfigurePartial(entity);
     }
+
+    partial void OnConfigurePartial(EntityTypeBuilder<Person> entity);
 }
