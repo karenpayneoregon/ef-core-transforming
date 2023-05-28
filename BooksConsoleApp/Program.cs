@@ -8,7 +8,7 @@ partial class Program
 {
     static void Main(string[] args)
     {
-        var bookList = BookOperations.AddViewBooks(true);
+        var bookList = BookOperations.AddViewBooks();
 
         var allBooksTable = new Table()
             .RoundedBorder()
@@ -44,7 +44,7 @@ partial class Program
             .Where(books => books.BookConnectId == BookConnectId.Programming)
             .ToList();
 
-
+        
         foreach (var book in programmingBooks)
         {
 
@@ -56,6 +56,29 @@ partial class Program
         }
 
         AnsiConsole.Write(programmingTable);
+
+        var automotiveBooks = bookList.Where(books => books.BookConnectId == BookConnectId.Automobile).ToList();
+        var automotiveTable = new Table()
+            .RoundedBorder()
+            .AddColumn("[b]Id[/]")
+            .AddColumn("[b]Title[/]")
+            .AddColumn("[b]Category[/]")
+            .Alignment(Justify.Center)
+            .BorderColor(Color.LightSlateGrey)
+            .Title("[yellow]Automotive books[/]");
+
+        
+        foreach (var book in automotiveBooks)
+        {
+
+            automotiveTable.AddRow(
+                book.BookId.ToString(),
+                book.Title,
+                book.BookConnectId.ToString());
+
+        }
+
+        AnsiConsole.Write(automotiveTable);
 
         Console.ReadLine();
 
