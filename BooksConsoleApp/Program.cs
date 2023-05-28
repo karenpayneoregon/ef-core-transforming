@@ -8,7 +8,7 @@ partial class Program
 {
     static void Main(string[] args)
     {
-        var bookList = BookOperations.AddViewBooks(false);
+        var bookList = BookOperations.AddViewBooks(true);
 
         var allBooksTable = new Table()
             .RoundedBorder()
@@ -24,7 +24,7 @@ partial class Program
             allBooksTable.AddRow(
                 book.BookId.ToString(),
                 book.Title,
-                book.BookVariantId.ToString()
+                book.BookConnectId.ToString()
             );
         }
 
@@ -41,7 +41,7 @@ partial class Program
 
 
         var programmingBooks = bookList
-            .Where(books => books.BookVariantId == BookVariantId.Programming)
+            .Where(books => books.BookConnectId == BookConnectId.Programming)
             .ToList();
 
 
@@ -51,7 +51,7 @@ partial class Program
             programmingTable.AddRow(
                 book.BookId.ToString(),
                 book.Title,
-                book.BookVariantId.ToString());
+                book.BookConnectId.ToString());
 
         }
 
