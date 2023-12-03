@@ -80,7 +80,7 @@ partial class Program
 
         AnsiConsole.Write(automotiveTable);
 
-        Console.ReadLine();
+        ExitPrompt();
 
     }
 }

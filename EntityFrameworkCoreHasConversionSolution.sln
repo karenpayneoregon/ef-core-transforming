@@ -26,17 +26,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BooksConsoleApp", "BooksCon
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DateOnlyApp", "EntityFrameworkCoreDateOnly\DateOnlyApp.csproj", "{26AB2C65-E806-4A5B-83A1-4C3195D6BA4C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EF Core 5", "EF Core 5", "{95D18DAC-F5E8-4D54-8D8D-A10248F1A9AC}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EF Core 6", "EF Core 6", "{D89EF54D-7276-49CC-8DF0-DC4AD85A5BD5}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameworkCoreHelpers", "EntityFrameworkCoreHelpers\EntityFrameworkCoreHelpers.csproj", "{35F0C1D8-331F-49EB-806C-D55D4E5D2B33}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ValueConversionsEncryptProperty", "ValueConversionsEncryptProperty\ValueConversionsEncryptProperty.csproj", "{10CCB169-F5CF-4CDC-9A1C-A3366BD4340F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EF Core 7", "EF Core 7", "{719D2965-1612-4496-9526-B717E3D0D36D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HasConversionDictionary", "HasConversionDictionary\HasConversionDictionary.csproj", "{1A74AE82-BEC8-4032-A873-A84D788C5E56}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HasConversionDictionary", "HasConversionDictionary\HasConversionDictionary.csproj", "{1A74AE82-BEC8-4032-A873-A84D788C5E56}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

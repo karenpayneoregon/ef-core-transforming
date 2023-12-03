@@ -1,12 +1,13 @@
 ﻿using BooksLibrary.Models;
 using Microsoft.EntityFrameworkCore;
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
 
 namespace BooksLibrary.Data;
 
 public class BookContext : DbContext
 {
     public DbSet<Book> Books { get; set; }
-    public DbSet<BookConnect> BookVariants { get; set; }
+    public DbSet<BookConnect> BookConnect { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

@@ -1,6 +1,6 @@
 ﻿# EF Core Value Conversions
 
-:green_circle: December 2022 moved all projects to .NET Core 7, EF Core 7
+:heavy_check_mark: December 2022 moved all projects to .NET Core 7, EF Core 7
 
 ## Introduction
 
