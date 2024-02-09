@@ -34,6 +34,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EF Core 7", "EF Core 7", "{
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HasConversionDictionary", "HasConversionDictionary\HasConversionDictionary.csproj", "{1A74AE82-BEC8-4032-A873-A84D788C5E56}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EF Core 8", "EF Core 8", "{E0019B8D-BAC8-4C72-9E42-CF8E057DF4B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpectreColorsApp", "SpectreColorsApp\SpectreColorsApp.csproj", "{3B73CC76-483C-4A76-AFF9-8913D951EE66}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -84,6 +88,10 @@ Global
 		{1A74AE82-BEC8-4032-A873-A84D788C5E56}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A74AE82-BEC8-4032-A873-A84D788C5E56}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A74AE82-BEC8-4032-A873-A84D788C5E56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B73CC76-483C-4A76-AFF9-8913D951EE66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B73CC76-483C-4A76-AFF9-8913D951EE66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B73CC76-483C-4A76-AFF9-8913D951EE66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B73CC76-483C-4A76-AFF9-8913D951EE66}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -99,6 +107,7 @@ Global
 		{26AB2C65-E806-4A5B-83A1-4C3195D6BA4C} = {719D2965-1612-4496-9526-B717E3D0D36D}
 		{35F0C1D8-331F-49EB-806C-D55D4E5D2B33} = {719D2965-1612-4496-9526-B717E3D0D36D}
 		{10CCB169-F5CF-4CDC-9A1C-A3366BD4340F} = {719D2965-1612-4496-9526-B717E3D0D36D}
+		{3B73CC76-483C-4A76-AFF9-8913D951EE66} = {E0019B8D-BAC8-4C72-9E42-CF8E057DF4B8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {104E09C7-6F6C-4452-B22C-411710E01F29}
