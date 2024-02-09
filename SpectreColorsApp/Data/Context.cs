@@ -4,6 +4,7 @@
 using Microsoft.EntityFrameworkCore;
 using SpectreColorsApp.Classes;
 using SpectreColorsApp.Models;
+using SpectreColorsApp.ValueConverters;
 using static ConfigurationLibrary.Classes.ConfigurationHelper;
 
 namespace SpectreColorsApp.Data;
@@ -20,11 +21,14 @@ public partial class Context : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+
         modelBuilder
             .Entity<SpectreTable>()
             .Property(p => p.ItemColor)
             .HasConversion<SpectreItemConverter>();
+
         OnModelCreatingPartial(modelBuilder);
+        
     }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);

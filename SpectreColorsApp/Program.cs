@@ -8,17 +8,21 @@ internal partial class Program
 {
     static void Main(string[] args)
     {
+        ViewAll();
+        Console.ReadLine();
+    }
+
+    private static void ViewAll()
+    {
         using var context = new Context();
         var list = context.SpectreTable.ToList();
         foreach (var row in list)
         {
-            AnsiConsole.MarkupLine($"[{row.Color}]{row.Purpose}[/]");
+            AnsiConsole.MarkupLine($"[{row.ItemColor}]{row.Purpose}[/]");
         }
-
-        Console.ReadLine();
     }
 
-    private static void DisplayDemo()
+    private static void DisplayByPurposeDemo()
     {
         using var context = new Context();
         var st = context.SpectreTable.FirstOrDefault( x=> x.Purpose == "Main text");
@@ -32,8 +36,8 @@ internal partial class Program
     {
         SpectreTable spectreTable = new SpectreTable()
         {
-            Purpose = "Secondary",
-            ItemColor = new SpectreItem() { R = 255, G = 255, B = 0 }
+            Purpose = "Error color",
+            ItemColor = new SpectreItem() { R = 255, G = 0, B = 0 }
         };
 
         using var context = new Context();
