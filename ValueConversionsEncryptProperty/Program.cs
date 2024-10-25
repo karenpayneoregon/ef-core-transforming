@@ -21,7 +21,7 @@ internal partial class Program
             await context.SaveChangesAsync();
         }
 
-        await using (var context = new SampleDbContext())
+        await using (SampleDbContext context = new())
         {
             AnsiConsole.MarkupLine("[cyan]Read the entity back[/]");
 

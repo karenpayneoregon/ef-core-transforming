@@ -27,7 +27,7 @@ public class AccountOperations
             }
         };
 
-        return JsonConvert.DeserializeObject<Account>(JsonConvert.SerializeObject(account, Formatting.Indented));
+        return JsonConvert.DeserializeObject<Account>(JsonConvert.SerializeObject(account, Formatting.Indented))!;
 
     }
     public static void ViewAccounts()

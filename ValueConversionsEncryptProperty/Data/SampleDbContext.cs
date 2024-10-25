@@ -11,7 +11,7 @@ namespace ValueConversionsEncryptProperty.Data
 {
     public class SampleDbContext : DbContext
     {
-        //public DbSet<User> User { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             #region ConfigureEncryptPropertyValues

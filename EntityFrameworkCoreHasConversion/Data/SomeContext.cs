@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
-using HasConversion.Models;
+﻿using HasConversion.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
@@ -12,7 +6,7 @@ namespace HasConversion.Data
 {
     public class SomeContext : DbContext
     {
-        public DbSet<SomeEntity> SomeEntities { get; set; }
+        public DbSet<SomeEntity>? SomeEntities { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=EF.SomeDatabase;Trusted_Connection=True");
