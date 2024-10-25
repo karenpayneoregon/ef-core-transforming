@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using EntityCoreFileLogger;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -16,17 +17,16 @@ namespace ValueConversionsEncryptProperty.Data
         {
             #region ConfigureEncryptPropertyValues
             modelBuilder.Entity<User>().Property(e => e.Password).HasConversion(
-                v => EncryptString(v),
-                v => DecryptString(v));
+                v => BC.HashPassword(v),
+                v => v);
             #endregion
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
             => optionsBuilder
-                .LogTo(message => Debug.WriteLine(message),
-                    new[] { RelationalEventId.CommandExecuted },
-                    LogLevel.Information,
-                    DbContextLoggerOptions.UtcTime)
+                .LogTo(new DbContextToFileLogger().Log,
+                    [DbLoggerCategory.Database.Command.Name],
+                    LogLevel.Information)
                 .UseSqlServer(ConnectionString())
                 .EnableSensitiveDataLogging();
     }

@@ -1,4 +1,5 @@
-﻿using ValueConversionsEncryptProperty.Classes;
+﻿using Serilog;
+using ValueConversionsEncryptProperty.Classes;
 using ValueConversionsEncryptProperty.Data;
 using ValueConversionsEncryptProperty.Models;
 
@@ -28,6 +29,13 @@ internal partial class Program
             var user = context.Set<User>().Single();
 
             AnsiConsole.MarkupLine($"User [cyan]{user.Name}[/] has password [cyan]'{user.Password}'[/]");
+            
+            var verified = BC.Verify("password", user.Password);
+            AnsiConsole.MarkupLine(verified ? "[green]Password is correct[/]" : "[red]Password is incorrect[/]");
+
+            verified = BC.Verify("password1", user.Password);
+            Log.Information("User {@user} password from database {@password}", user.Name, user.Password);
+            AnsiConsole.MarkupLine(verified ? "[green]Password is correct[/]" : "[red]Password is incorrect[/]");
         }
 
         Console.ReadLine();

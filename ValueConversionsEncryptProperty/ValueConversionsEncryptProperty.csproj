@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<OutputType>Exe</OutputType>
@@ -23,6 +23,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="ConsoleHelperLibrary" Version="1.0.2" />
+		<PackageReference Include="EntityCoreFileLogger" Version="1.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -33,8 +34,13 @@
 		<PackageReference Include="Spectre.Console" Version="0.44.0" />
 	</ItemGroup>
 
-	<ItemGroup>
+	<!--<ItemGroup>
 		<ProjectReference Include="..\EntityFrameworkCoreHelpers\EntityFrameworkCoreHelpers.csproj" />
+	</ItemGroup>-->
+
+	<ItemGroup>
+		<PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+		<Using Include="BCrypt.Net.BCrypt" Alias="BC" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -42,5 +48,16 @@
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
 	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Serilog" Version="4.1.0" />
+		<PackageReference Include="Serilog.Extensions.Logging.File" Version="3.0.0" />
+		<PackageReference Include="Serilog.Sinks.File" Version="6.0.0" />
+	</ItemGroup>
+
+	<Target Name="MakeLogDir" AfterTargets="Build">
+
+		<MakeDir Directories="$(OutDir)LogFiles\$([System.DateTime]::Now.ToString(yyyy-MM-dd))" />
+	</Target>
 
 </Project>
