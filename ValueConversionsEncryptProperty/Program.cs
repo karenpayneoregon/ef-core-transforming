@@ -10,7 +10,7 @@ internal partial class Program
     static async Task Main(string[] args)
     {
 
-        await using (var context = new SampleDbContext())
+        await using (var context = new Context())
         {
             AnsiConsole.MarkupLine("[cyan]Creating database[/]");
             SetupDatabase.CleanDatabase(context);
@@ -22,7 +22,7 @@ internal partial class Program
             await context.SaveChangesAsync();
         }
 
-        await using (SampleDbContext context = new())
+        await using (Context context = new())
         {
             AnsiConsole.MarkupLine("[cyan]Read the entity back[/]");
 
