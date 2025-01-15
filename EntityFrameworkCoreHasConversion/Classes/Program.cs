@@ -26,7 +26,7 @@ partial class Program
     public static void GetEnumDescriptions()
     {
 
-        List<ItemContainer> result = EnumHelper.GetItems<WineVariantId>();
+        List<ItemContainer> result = EnumHelper.GetItems<WineType>();
 
         foreach (var container in result)
         {
