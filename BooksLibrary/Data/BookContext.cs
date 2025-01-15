@@ -1,12 +1,13 @@
 ﻿using BooksLibrary.Models;
 using Microsoft.EntityFrameworkCore;
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
 
 namespace BooksLibrary.Data;
 
 public class BookContext : DbContext
 {
     public DbSet<Book> Books { get; set; }
-    public DbSet<BookVariant> BookVariants { get; set; }
+    public DbSet<BookConnect> BookConnect { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -17,21 +18,21 @@ public class BookContext : DbContext
     {
         modelBuilder
             .Entity<Book>()
-            .Property(e => e.BookVariantId)
+            .Property(e => e.BookConnectId)
             .HasConversion<int>();
 
         modelBuilder
-            .Entity<BookVariant>()
-            .Property(e => e.BookVariantId)
+            .Entity<BookConnect>()
+            .Property(e => e.BookConnectId)
             .HasConversion<int>();
 
         modelBuilder
-            .Entity<BookVariant>().HasData(
-                Enum.GetValues(typeof(BookVariantId))
-                    .Cast<BookVariantId>()
-                    .Select(e => new BookVariant()
+            .Entity<BookConnect>().HasData(
+                Enum.GetValues(typeof(BookConnectId))
+                    .Cast<BookConnectId>()
+                    .Select(e => new BookConnect()
                     {
-                        BookVariantId = e,
+                        BookConnectId = e,
                         Name = e.ToString()
                     })
             );

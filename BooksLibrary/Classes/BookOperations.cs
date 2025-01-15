@@ -23,93 +23,93 @@ public class BookOperations
             context.Books.Add(new Book
             {
                 Title = "Sports Illustrated",
-                BookVariantId = BookVariantId.Sports
+                BookConnectId = BookConnectId.Sports
             });
 
             context.Books.Add(new Book
             {
                 Title = "Friday Night Lights",
-                BookVariantId = BookVariantId.Sports
+                BookConnectId = BookConnectId.Sports
             });
 
             context.Books.Add(new Book
             {
                 Title = "The logic of sports betting",
-                BookVariantId = BookVariantId.Sports
+                BookConnectId = BookConnectId.Sports
             });
 
             context.Books.Add(new Book
             {
                 Title = "Git for programmers",
-                BookVariantId = BookVariantId.Programming
+                BookConnectId = BookConnectId.Programming
             });
 
             context.Books.Add(new Book
             {
                 Title = "The self-taught programmer",
-                BookVariantId = BookVariantId.Programming
+                BookConnectId = BookConnectId.Programming
             });
 
             context.Books.Add(new Book
             {
                 Title = "C# Programming",
-                BookVariantId = BookVariantId.Programming
+                BookConnectId = BookConnectId.Programming
             });
 
             context.Books.Add(new Book
             {
                 Title = "Beginning Object-Oriented Programming with C#",
-                BookVariantId = BookVariantId.Programming
+                BookConnectId = BookConnectId.Programming
             });
 
             context.Books.Add(new Book
             {
                 Title = "Entity Framework Core in Action",
-                BookVariantId = BookVariantId.Programming
+                BookConnectId = BookConnectId.Programming
             });
 
 
             context.Books.Add(new Book
             {
                 Title = "Into the Abyss: An Extraordinary True Story",
-                BookVariantId = BookVariantId.Adventure
+                BookConnectId = BookConnectId.Adventure
             });
 
             context.Books.Add(new Book
             {
                 Title = "The Terminal List: A Thriller",
-                BookVariantId = BookVariantId.Adventure
+                BookConnectId = BookConnectId.Adventure
             });
 
             context.Books.Add(new Book
             {
                 Title = "Space Travel: Impossible to Reality",
-                BookVariantId = BookVariantId.SpaceTravel
+                BookConnectId = BookConnectId.SpaceTravel
             });
 
             context.Books.Add(new Book
             {
                 Title = "Galaxies: Birth and Destiny of Our Universe",
-                BookVariantId = BookVariantId.SpaceTravel
+                BookConnectId = BookConnectId.SpaceTravel
             });
 
             context.Books.Add(new Book
             {
                 Title = "100 cars that changed the world",
-                BookVariantId = BookVariantId.Automobile
+                BookConnectId = BookConnectId.Automobile
             });
 
             context.Books.Add(new Book
             {
                 Title = "Classic cars",
-                BookVariantId = BookVariantId.Automobile
+                BookConnectId = BookConnectId.Automobile
             });
 
 
             context.Books.Add(new Book
             {
                 Title = "Built for Speed: The World's Fastest Road Cars",
-                BookVariantId = BookVariantId.Automobile
+                BookConnectId = BookConnectId.Automobile
             });
 
             context.SaveChanges();
@@ -119,7 +119,7 @@ public class BookOperations
  
         return context
             .Books
-            .Include(item => item.BookVariant)
+            .Include(item => item.BookConnect)
             .ToList();
 
             

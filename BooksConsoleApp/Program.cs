@@ -8,7 +8,7 @@ partial class Program
 {
     static void Main(string[] args)
     {
-        var bookList = BookOperations.AddViewBooks(true);
+        var bookList = BookOperations.AddViewBooks();
 
         var allBooksTable = new Table()
             .RoundedBorder()
@@ -24,7 +24,7 @@ partial class Program
             allBooksTable.AddRow(
                 book.BookId.ToString(),
                 book.Title,
-                book.BookVariantId.ToString()
+                book.BookConnectId.ToString()
             );
         }
 
@@ -41,23 +41,46 @@ partial class Program
 
 
         var programmingBooks = bookList
-            .Where(books => books.BookVariantId == BookVariantId.Programming)
+            .Where(books => books.BookConnectId == BookConnectId.Programming)
             .ToList();
 
-
+        
         foreach (var book in programmingBooks)
         {
 
             programmingTable.AddRow(
                 book.BookId.ToString(),
                 book.Title,
-                book.BookVariantId.ToString());
+                book.BookConnectId.ToString());
 
         }
 
         AnsiConsole.Write(programmingTable);
 
-        Console.ReadLine();
+        var automotiveBooks = bookList.Where(books => books.BookConnectId == BookConnectId.Automobile).ToList();
+        var automotiveTable = new Table()
+            .RoundedBorder()
+            .AddColumn("[b]Id[/]")
+            .AddColumn("[b]Title[/]")
+            .AddColumn("[b]Category[/]")
+            .Alignment(Justify.Center)
+            .BorderColor(Color.LightSlateGrey)
+            .Title("[yellow]Automotive books[/]");
+
+        
+        foreach (var book in automotiveBooks)
+        {
+
+            automotiveTable.AddRow(
+                book.BookId.ToString(),
+                book.Title,
+                book.BookConnectId.ToString());
+
+        }
+
+        AnsiConsole.Write(automotiveTable);
+
+        ExitPrompt();
 
     }
 }

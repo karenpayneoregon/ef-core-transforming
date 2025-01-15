@@ -2,7 +2,9 @@
 using System.Text;
 
 namespace ValueConversionsEncryptProperty.Classes;
-
+/// <summary>
+/// Not used anymore
+/// </summary>
 public class SecurityHelpers
 {
     /// <summary>

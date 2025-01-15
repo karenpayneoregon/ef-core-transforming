@@ -2,7 +2,7 @@
 
 namespace BooksLibrary.Models;
 
-public enum BookVariantId : int
+public enum BookConnectId : int
 {
     [Description("Space Travel")]
     SpaceTravel = 0,

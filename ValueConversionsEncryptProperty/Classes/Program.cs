@@ -1,4 +1,5 @@
 ﻿using System.Runtime.CompilerServices;
+using ValueConversionsEncryptProperty.Classes;
 
 
 // ReSharper disable once CheckNamespace
@@ -11,5 +12,6 @@ internal partial class Program
     {
         Console.Title = "Code sample";
         WindowUtility.SetConsoleWindowPosition(WindowUtility.AnchorWindow.Center);
+        SetupLogging.Development();
     }
 }
