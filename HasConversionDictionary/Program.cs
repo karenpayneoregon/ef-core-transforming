@@ -9,8 +9,8 @@ internal partial class Program
     {
         using var context = new DictionaryContext();
         //AddItems(context);
-        //Show(context);
-        Dictionary item = context.Dictionary.FirstOrDefault(x => x.Data.Key == "K2")!;
+        Show(context);
+        Dictionary item = context.Dictionary.FirstOrDefault(x => x.Data.Key == "Karen")!;
 
 
         Console.ReadLine();
@@ -22,15 +22,19 @@ internal partial class Program
         var items = context.Dictionary.ToList();
         foreach (var item in items)
         {
-            Console.WriteLine($"{item.Id,-4}{item.Data.Key,-4}{item.Data.Value}");
+            Console.WriteLine($"{item.Id,-4}{item.Data.Key,-10}{item.Data.Value}");
         }
     }
 
     private static void AddItems(DictionaryContext context)
     {
-        context.Add(new Dictionary() { Data = new DataEntity() { Key = "K1", Value = "V1" } });
-        context.Add(new Dictionary() { Data = new DataEntity() { Key = "K2", Value = "V2" } });
-        context.Add(new Dictionary() { Data = new DataEntity() { Key = "K3", Value = "V3" } });
+        
+        context.Database.EnsureDeleted();
+        context.Database.EnsureCreated();
+
+        context.Add(new Dictionary() { Data = new DataEntity() { Key = "Karen", Value = "C#" } });
+        context.Add(new Dictionary() { Data = new DataEntity() { Key = "Anne", Value = "TypeScript" } });
+        context.Add(new Dictionary() { Data = new DataEntity() { Key = "Mike", Value = "VB.NET" } });
         context.SaveChanges();
     }
 }

@@ -41,12 +41,12 @@ namespace HasConversion
              * Bool to string and back
              * Color and back
              */
-            //PeopleOperations.AddViewPeople();
+            PeopleOperations.AddViewPeople();
 
             /*
              * string to array and back
              */
-            AccountOperations.ViewAccounts();
+            //AccountOperations.ViewAccounts();
 
             //AmPmOperations.Example();
             Console.ReadLine();

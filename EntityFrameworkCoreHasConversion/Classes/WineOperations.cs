@@ -4,7 +4,7 @@ using HasConversion.Models;
 using Microsoft.EntityFrameworkCore;
 using Spectre.Console;
 
-using static HasConversion.Models.WineVariantId;
+using static HasConversion.Models.WineType;
 
 namespace HasConversion.Classes;
 
